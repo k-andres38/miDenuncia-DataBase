@@ -8,10 +8,10 @@ exports.singUp = async(req,res,next)=>{
    // console.log(req.body)
 
     try {
-        let {name,last_name,nickname,email,password1,password2}=req.body;
+        let {name,last_name,nickname,email,password}=req.body;
 
-        password1 = bcrypt.hashSync(password1,10);
-        password2 = bcrypt.hashSync(password2,10);
+        password = bcrypt.hashSync(password1,10);
+       
 
         let user=await modeloUser.findOne({ where: {email } });
         
@@ -20,7 +20,7 @@ exports.singUp = async(req,res,next)=>{
             }else{
 
                 modeloUser.create({
-                    nickname,name,last_name,email,password1,password2
+                    nickname,name,last_name,email,password,
                 }).then((data)=>{
                    let token= jwt.sign({
                         data
