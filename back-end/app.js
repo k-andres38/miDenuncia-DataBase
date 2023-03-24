@@ -9,7 +9,7 @@ const routes = require('./routes/routeUsers/route')
 const routesComment = require('./routes/routeComments/route')
 const routeRequest=require('./routes/routeRequest/route')
 const handleError = require('./handlers/handlerError')
-const users = require('./routes/routeUsers/routeUSerAuth0')
+const userAuth0 = require('./routes/routeUsers/routeUSerAuth0')
 dotenv.config()
 
 const config=require('./middleware/authUser')
@@ -23,10 +23,8 @@ app.use(cors());
 
 app.use(morgan('tiny'));
 
-//app.use('/',auth(config),users )
-// app.use('/hola',(req,res)=>{
-//     res.send('funciono')
-// } )
+
+app.use('/',auth(config),userAuth0 )
 app.use('/',routes)
 app.use('/',routeRequest)
 app.use('/', routesComment)
