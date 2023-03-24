@@ -35,7 +35,10 @@ app.use('/', routesComment)
 
 app.use(handleError)
 
-const port = 4000
+const port = process.env.PORT || 4000;
+if (!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.NODE_ENV !== 'production') {
+  config.baseURL = `http://localhost:${port}`;
+}
 
 app.listen(port, console.log('el server escuchando por el puerto ' + port))
 
