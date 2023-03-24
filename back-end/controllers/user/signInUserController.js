@@ -6,7 +6,7 @@ exports.signIn = async (req, res, next) => {
 
     try {
 
-        let { email, password1 } = req.body;
+        let { nickname, password } = req.body;
 
 
 
@@ -20,7 +20,7 @@ exports.signIn = async (req, res, next) => {
             } else {
 
 
-                if (bcrypt.compareSync(password1, user.password1)) {
+                if (bcrypt.compareSync(password, user.password)) {
 
 
 
