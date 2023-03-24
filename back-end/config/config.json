@@ -11,6 +11,7 @@
       "ssl": {
         "rejectUnauthorized": false
       }
+    }
   },
 
   "test": {
@@ -39,8 +40,7 @@
       "ssl": {
         "rejectUnauthorized": false
       }
+    }
   }
+}
 
-  }
-}
-}
