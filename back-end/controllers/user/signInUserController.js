@@ -10,7 +10,7 @@ exports.signIn = async (req, res, next) => {
 
 
 
-        await modeloUser.findOne({ where: { email } }).then(user => {
+        await modeloUser.findOne({ where: { nickname } }).then(user => {
 
 
 
