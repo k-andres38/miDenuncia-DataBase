@@ -10,7 +10,7 @@ exports.singUp = async(req,res,next)=>{
     try {
         let {name,last_name,nickname,email,password}=req.body;
 
-        password = bcrypt.hashSync(password1,10);
+        password = bcrypt.hashSync(password,10);
        
 
         let user=await modeloUser.findOne({ where: {email } });
