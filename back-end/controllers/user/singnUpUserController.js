@@ -15,9 +15,9 @@ exports.singUp = async(req,res,next)=>{
 
         let user=await modeloUser.findOne({ where: {email } });
         
-            if(!user){
-                res.status(100).json({message:'Usuario ya existe'})
-            }else{
+            // if(!user){
+            //     res.status(100).json({message:'Usuario ya existe'})
+            // }else{
 
                 modeloUser.create({
                     nickname,name,last_name,email,password,
@@ -29,7 +29,7 @@ exports.singUp = async(req,res,next)=>{
                     res.status(201).json({data,token})
                 }).catch((err) => next(err));
 
-            }
+           // }
               
         
         
