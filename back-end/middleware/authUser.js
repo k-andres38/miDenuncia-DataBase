@@ -5,9 +5,9 @@ module.exports= config = {
     secret: process.env.AUTH_SECRET,
     baseURL: process.env.AUTH_BASE_URL,
     clientID: process.env.AUTH_CLIENT_ID,
-    issuerBaseURL: process.env.AUTH_BASE_URL 
+    issuerBaseURL: process.env.AUTH_ISSURE_BASE_URL
     
   };
   
-  console.log(config);
+  
   

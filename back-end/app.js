@@ -23,8 +23,11 @@ app.use(cors());
 
 app.use(morgan('tiny'));
 
-app.use('/',auth(config),users )
-app.use('/',auth(config),routes)
+//app.use('/',auth(config),users )
+// app.use('/hola',(req,res)=>{
+//     res.send('funciono')
+// } )
+app.use('/',routes)
 app.use('/',routeRequest)
 app.use('/', routesComment)
 
