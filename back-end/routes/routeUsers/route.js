@@ -11,7 +11,7 @@ const infoRequestUser = require('../../controllers/user/infoRequestUserControlle
 
 router.post('/signUp',signUpUserController.singUp)
 router.post('/signIn',signInUserController.signIn)
-router.get('/info',infoUserController.infoUser)
+router.get('/info',authMiddleware,infoUserController.infoUser)
 router.get('/infoRequestUser',infoRequestUser.infoRequestUser)
 
 
