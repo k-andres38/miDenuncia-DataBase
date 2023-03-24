@@ -25,11 +25,8 @@ function Login() {
         console.log(value);
        
        loginBd(value).then(res =>{
-            if(!res.data.user){
-                console.log('algo esta mal');
-                
-            navigate("/usuarioLog");
-            }
+           res.data.user ? navigate("/usuarioLog") :  console.log('algo esta mal');
+            
 
         }).catch(err => {
             setEstado(err.response.data)
