@@ -5,19 +5,43 @@ import {loginBd} from '../baseDedatos'
 import { Link,useNavigate } from 'react-router-dom'
 import { AiOutlineUser,AiOutlineLock,AiFillGoogleCircle } from "react-icons/ai";
 import { useForm} from 'react-hook-form';
+import { useState, useEffect } from "react";
 
 function Login() {
+    const [estado, setEstado]=useState(null)
+
+    const miostyle={
+        margin : "10px",
+        color:"white"
+
+    }
+   
 
     const {register,handleSubmit,formState:{errors}} = useForm()
     const navigate = useNavigate();
-
+    
     const onSubmit = value =>{
 
         console.log(value);
-        navigate("/usuarioLog");
-        loginBd(value)
+       
+       loginBd(value).then(res =>{
+            if(!res.data.user){
+                console.log('algo esta mal');
+                
+            navigate("/usuarioLog");
+            }
+
+        }).catch(err => {
+            setEstado(err.response.data)
+           
+          
+        })
+
+    
         
     }
+
+    
 
     return (
         <div className={`contenedor ${style.login_Contenedor}`}>
@@ -56,6 +80,9 @@ function Login() {
                         })} type="password" className={style.inputLogin}  placeholder="Contraseña"/>
                         {errors.password && <span className={style.error}>{errors.password.message}</span>}
                     </label>
+                        
+                     
+                       {estado && estado.message && <p style={miostyle} >{estado.message}</p>}
 
                     <button type="submit" className={`btn ${style.btnLogin}`}>Iniciar Sesión</button>
                      

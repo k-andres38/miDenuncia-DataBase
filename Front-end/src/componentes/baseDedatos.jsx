@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { json } from 'react-router-dom'
+
 
 export async function registroBd(envio) {
 
@@ -8,8 +10,9 @@ export async function registroBd(envio) {
 
 export async function loginBd(envio) {
 
-    const peticion = axios.post("https://midenuncia-database-production.up.railway.app/signIn",envio).then(res => console.log(res)).catch(err => console.error(err))
-
+    return axios.post("https://midenuncia-database-production.up.railway.app/signIn",envio);
+   
+    
 }
 
 export function peticiontarjeta(envio){
