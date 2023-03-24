@@ -36,7 +36,7 @@ app.use('/', routesComment)
 app.use(handleError)
 
 const port = process.env.PORT || 4000;
-if (!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.NODE_ENV !== 'production') {
+if (!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.NODE_ENV === 'production') {
   config.baseURL = `http://localhost:${port}`;
 }
 
