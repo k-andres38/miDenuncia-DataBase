@@ -1,7 +1,8 @@
+const dotenv = require('dotenv');
+dotenv.config()
 
-
-const GOOGLE_CLIENT_ID = '960507511532-7bsiql7u8m9u19msf2uoebsqrpog7sqp.apps.googleusercontent.com';
-const GOOGLE_CLIENT_SECRET = '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';
+// const GOOGLE_CLIENT_ID = '960507511532-7bsiql7u8m9u19msf2uoebsqrpog7sqp.apps.googleusercontent.com';
+// const GOOGLE_CLIENT_SECRET = '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';
 const users=require('../models').user;
 const passport = require('passport');
 let GoogleStrategy = require('passport-google-oauth20').Strategy;
@@ -16,9 +17,11 @@ passport.deserializeUser((user,done)=> {
 }) 
 
 passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "/google/callback"
+
+   
   },
   async (accessToken, refreshToken, profile, cb) => {
     try {
