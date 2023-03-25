@@ -57,8 +57,7 @@ app.use('/', routesComment)
 app.use(session({
   secret: 'MIDENUNCIA',
   resave: false,
-  saveUninitialized: true,
-  store: sessionStore
+  saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
