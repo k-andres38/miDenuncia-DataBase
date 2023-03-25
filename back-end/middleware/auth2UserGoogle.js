@@ -23,16 +23,7 @@ passport.use(new GoogleStrategy({
   },
   async (accessToken, refreshToken, profile, cb) => {
     try {
-     // console.log(profile);
-      //const existingUser = await users.findOne({where:{nickname: profile.id}})
-      //creo el usuario
-      //console.log(existingUser)
-      // if(existingUser){
-      //    return cb(null,existingUser)
-      //    console.log(JSON.stringify(existingUser.nickname));
-      //  }else{
-        
-       // console.log('aqui estoy tyoooooooooooooo')
+     
        
           
            const [user, created] = await users.findOrCreate({
