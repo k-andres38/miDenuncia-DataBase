@@ -3,7 +3,7 @@ const app=require('./app')
 
 
 ////aqui hacemos las importaciones y que todo quede dentro de ella
-const express = require('express');
+//const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors')
 const sgMail=require('./services/sendgrid')
