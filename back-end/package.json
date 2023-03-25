@@ -2,9 +2,9 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app index.js",
+    "start": "node app ",
     "dev": "nodemon app",
     "test": "jest --verbose ./routes"
   },
