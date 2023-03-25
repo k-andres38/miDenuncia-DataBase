@@ -21,8 +21,6 @@ const passport= require('passport');
 const routes = require('./routes/routeUsers/route')
 const routesComment = require('./routes/routeComments/route')
 const routeRequest=require('./routes/routeRequest/route')
-const handleError = require('./handlers/handlerError')
-
 
 //FIN
 ////////////////////////////////////////////////////////////////
@@ -68,8 +66,7 @@ app.get('/google',
 
 app.get('/google/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),(req, res)=> {
-    //res.end('success');
-    // res.redirect('/login');
+ 
     res.status(200).json({message: 'success',data:req.user});
     
   });
