@@ -1,8 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config()
 
-// const GOOGLE_CLIENT_ID = '960507511532-7bsiql7u8m9u19msf2uoebsqrpog7sqp.apps.googleusercontent.com';
-// const GOOGLE_CLIENT_SECRET = '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';
 const users=require('../models').user;
 const passport = require('passport');
 let GoogleStrategy = require('passport-google-oauth20').Strategy;
