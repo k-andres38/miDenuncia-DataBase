@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
+    "start": "node app index.js",
     "dev": "nodemon app",
     "test": "jest --verbose ./routes"
   },
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "jest": "^29.5.0",
-    "nodemon": "^2.0.21",
+    "nodemon": "^2.0.22",
     "sequelize-cli": "^6.6.0",
     "supertest": "^6.3.3"
   }
