@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER(5)
       },
       nickname: {
-        type: Sequelize.STRING(20)
+        type: Sequelize.STRING(60)
       },
       name: {
         type: Sequelize.STRING(20)
@@ -24,7 +24,10 @@ module.exports = {
         unique:true
       },
       password: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(250)
+      },
+      avatar: {
+        type: Sequelize.STRING(250)
       },
       
       contact_phone: {
