@@ -22,7 +22,7 @@ passport.use(new GoogleStrategy({
   },
   async (accessToken, refreshToken, profile, cb) => {
     try {
-      console.log(profile);
+     // console.log(profile);
       //const existingUser = await users.findOne({where:{nickname: profile.id}})
       //creo el usuario
       //console.log(existingUser)

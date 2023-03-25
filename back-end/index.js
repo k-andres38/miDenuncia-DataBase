@@ -70,7 +70,7 @@ app.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),(req, res)=> {
     //res.end('success');
     // res.redirect('/login');
-    res.status(200).json({message: 'success'});
+    res.status(200).json({message: 'success',data:req.user});
     
   });
 
