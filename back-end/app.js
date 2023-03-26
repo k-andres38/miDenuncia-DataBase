@@ -72,8 +72,12 @@ app.get('/google',
 app.get('/google/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),(req, res)=> {
  
-    res.status(200).json({message: 'success',data:req.user});
+     res.redirect('/redirect');
     
+  });
+
+  app.get('/redirect', function(req, res) {
+    res.redirect('http://localhost:5173/usuarioLog');
   });
 
   
