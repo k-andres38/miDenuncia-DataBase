@@ -3,7 +3,6 @@ const express = require('express')
 const app = express()
 
 
-
 //const app=require('./app')
 
 
@@ -92,11 +91,18 @@ app.get('/google/callback',
 
 //INICIO CORREO
 ////////////////////////////////////////////////////////////////
-app.post('/send-email',routeEmail)
+
 
 
 //FIN
 ////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
 
 
 
