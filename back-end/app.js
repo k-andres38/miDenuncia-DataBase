@@ -11,7 +11,7 @@ const app = express()
 //const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors')
-const sgMail=require('./services/sendgrid')
+
 const session = require('express-session');
 //const { auth } = require('express-openid-connect');
 const morgan = require('morgan')
@@ -26,6 +26,7 @@ const passport= require('passport');
 const routes = require('./routes/routeUsers/route')
 const routesComment = require('./routes/routeComments/route')
 const routeRequest=require('./routes/routeRequest/route')
+const routeEmail = require('./routes/routeEmail/nodemail')
 
 //FIN
 ////////////////////////////////////////////////////////////////
@@ -44,6 +45,8 @@ app.use(cors()); //proteccion de cabecera
 app.use('/',routes)
 app.use('/',routeRequest)
 app.use('/', routesComment)
+app.use('/', routeEmail)
+
 
 //FIN
 ////////////////////////////////////////////////////////////////
@@ -60,7 +63,7 @@ app.use(session({
   saveUninitialized: false
 }));
 app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.session());
 
 
 require('./middleware/auth2UserGoogle')
@@ -80,9 +83,22 @@ app.get('/google/callback',
     res.redirect('http://localhost:5173/usuarioLog');
   });
 
+  // app.get('/login', function(req, res) {
+  //   res.redirect('http://localhost:5173/usuarioLog');
+  // });
   
 //FIN
 ////////////////////////////////////////////////////////////////
+
+//INICIO CORREO
+////////////////////////////////////////////////////////////////
+app.post('/send-email',routeEmail)
+
+
+//FIN
+////////////////////////////////////////////////////////////////
+
+
 
  
 
