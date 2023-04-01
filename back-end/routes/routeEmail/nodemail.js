@@ -3,11 +3,10 @@ const router= express.Router();
 
 
 
-const email= require('../../controllers/email/email')
+const email= require('../../controllers/email/emailController')
 
 
-
-router.post('/send-mail',email.sendEmail)
+router.get('/send-mail',email.sendEmail)
 
 
 module.exports=router;
