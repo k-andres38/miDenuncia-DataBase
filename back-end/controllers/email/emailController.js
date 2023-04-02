@@ -47,7 +47,7 @@ exports.sendEmail= async (req,res)=>{
     user.resetPasswordExpires = Date.now() + 1800000; // 30 minutos en milisegundos
      user.save();
 
-    const resetPasswordUrl = `http://localhost:4000/reset-password?token=${token}&email=${user.email}`;
+    const resetPasswordUrl = `https://midenuncia-database-production.up.railway.app/reset-password?token=${token}&email=${user.email}`;
     const mailOptions = {
       to: user.email,
       subject: 'Restablecimiento de contraseña',
@@ -60,7 +60,7 @@ exports.sendEmail= async (req,res)=>{
       } else {
         res.status(200).json({message:`Correo electrónico enviado!`,message2:"verifica tu bandeja de entrada" })
       }})
-          //res.json({ message: 'Correo electrónico enviado' });
+        
 
 
     }).catch(err=>{
@@ -74,7 +74,7 @@ exports.sendEmail= async (req,res)=>{
 
     
   } catch (error) {
-   // console.error(error);
+   
     res.status(500).json({ message: 'Error interno del servidor' });
   }
 }
