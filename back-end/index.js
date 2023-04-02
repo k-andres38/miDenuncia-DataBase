@@ -36,7 +36,7 @@ const handleError = require('./handlers/handlerError')
 
 //FIN
 ////////////////////////////////////////////////////////////////
- mongoose.connect('mongodb+srv://midenuncia:MIDENUNCIA2023@api-session.gu6bn9e.mongodb.net/?retryWrites=true&w=majority', {
+ mongoose.connect(process.env.URI_MONGO, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
  // useCreateIndex: true
@@ -47,7 +47,7 @@ app.use(session({
   secret: 'mysecret', // secreto para firmar las cookies de sesión
   resave: false,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: 'mongodb+srv://midenuncia:MIDENUNCIA2023@api-session.gu6bn9e.mongodb.net/?retryWrites=true&w=majority',
+  store: MongoStore.create({ mongoUrl: process.env.URI_MONGO,
   crypto: {
     secret: 'secret'
   },
