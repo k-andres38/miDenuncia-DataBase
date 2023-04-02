@@ -18,7 +18,7 @@ passport.deserializeUser((user,done)=> {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://midenuncia-database-production.up.railway.app/google/callback"
+    callbackURL: "/google/callback"
 
    
   },
