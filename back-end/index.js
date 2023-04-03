@@ -73,8 +73,11 @@ app.use(cookieParser())
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
+// ////app.use(cors()); //proteccion de cabecera
 
-app.use(cors()); //proteccion de cabecera
 app.use(morgan('tiny'));//monitoreo de solicitudes
 ////////////////////////////////////////////////////////////////
 
@@ -108,6 +111,7 @@ app.get('/verificacionToken', async (req, res) => {
  
   const {token,email} = req.query;
    await User.findOne({where: {resetPasswordToken:token}})
+   
   .then(user => {
     // const user1=new SessionModel
     // user1.sessionID=req.sessionID
