@@ -53,6 +53,7 @@ app.use(session({
   },
   cookie: {
     secure: true, // solo enviar cookies a través de HTTPS
+    maxAge: 24 * 60 * 60 * 1000 // 1 día de duración
   },
   
   collection: 'sessions',
