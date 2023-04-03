@@ -109,12 +109,21 @@ app.get('/verificacionToken', async (req, res) => {
   const {token,email} = req.query;
    await User.findOne({where: {resetPasswordToken:token}})
   .then(user => {
-    const user1=new SessionModel
-    user1.sessionID=req.sessionID
-    user1.session=user.email
+    // const user1=new SessionModel
+    // user1.sessionID=req.sessionID
+    // user1.session=user.email
     
-    user1.save()
-    req.session.email=user.email
+    // user1.save()
+    // req.session.email=user.email
+
+    const session = new SessionModel({
+      sessionID: req.sessionID,
+      session: user.email
+    });
+    
+    session.save();
+    
+    req.session.email = user.email;
    
     
     const url = `http://localhost:5173/contrasenaNueva?token=${user.resetPasswordToken}&email=${user.email}}`;
@@ -142,7 +151,7 @@ const seesionid = Object.keys(req.sessionStore.sessions)[0]
 
 const sessioUser= await SessionModel.findOne({ sessionID: seesionid })
   .then(user => {
-   
+    console.log(user)
     
    
       User.findOne({ where: {email:user.session}})
