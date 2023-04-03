@@ -18,7 +18,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 
-
+//mongoose.connect(process.env.URI_MONGO)
 
 let cookieParser = require('cookie-parser')
 
@@ -39,7 +39,7 @@ const handleError = require('./handlers/handlerError')
  mongoose.connect(process.env.URI_MONGO, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
- // useCreateIndex: true
+  useCreateIndex: true
 });
 
 
@@ -134,7 +134,7 @@ app.put('/newPassword', async (req, res) => {
 
 
 
-
+console.log(req.session)
 //console.log(email);
 const seesionid = Object.keys(req.sessionStore.sessions)[0]
 //console.log(seesionid)
