@@ -46,7 +46,7 @@ const handleError = require('./handlers/handlerError')
 app.use(session({
   secret: 'mysecret', // secreto para firmar las cookies de sesión
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: process.env.URI_MONGO,
   crypto: {
     secret: 'secret'
