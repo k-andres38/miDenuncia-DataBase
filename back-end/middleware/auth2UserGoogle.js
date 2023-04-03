@@ -18,12 +18,13 @@ passport.deserializeUser((user,done)=> {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:4000/google/callback"
+    callbackURL: "/google/callback"
 
    
   },
   async (accessToken, refreshToken, profile, cb) => {
     try {
+
      
            
      const [user, created] = await users.findOrCreate({

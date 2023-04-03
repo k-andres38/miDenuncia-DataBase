@@ -1,4 +1,5 @@
 const express = require('express');
+const users=require('../../models').user
 
 const router = express.Router()
 const passport= require('passport');
@@ -46,11 +47,20 @@ app.use(passport.initialize());
 
 router.get('/google', googleController);
 
-router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }),(req, res)=> {
+router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }),async(req, res)=> {
+  // console.log(req.user.dataValues.email)
+
+  // const user2 = await users.findOne({where:{email}})
+  //     if(user2){
+  //      // return res.send('email existente')
+  //      return cb('email existente','email existente');
+  //     }
+    
+  
   const user1=new SessionModel
     user1.sessionID=req.sessionID
-    user1.session=user.email
-    identificadorUUI=uuidv4()
+   // user1.session=user.email
+   
     user1.save()
   res.redirect('http://localhost:5173/usuarioLog')
 

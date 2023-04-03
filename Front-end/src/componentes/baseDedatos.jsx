@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export async function EnvioLoginBd(envio) {
-       let respuesta = await axios.post("http://localhost:4000/signIn",envio        )
+       let respuesta = await axios.post("https://midenuncia-database-production.up.railway.app/signIn",envio)
                 .then(res => res)
                 .catch(err => err) 
         return respuesta
@@ -9,7 +9,7 @@ export async function EnvioLoginBd(envio) {
 
 export function EnvioResgistrarBd(envio) {
 
-    axios.post("http://localhost:4000/signUp",envio)
+    axios.post("https://midenuncia-database-production.up.railway.app/signUp",envio)
     .then(res => console.log(res))
     .catch(err => console.log(err))
 
@@ -20,7 +20,7 @@ export function EnvioResgistrarBd(envio) {
 // esto envia el un enlace al email para recuperar contrasena
 export async function  EnvioEmailResetpassword (envio){
 
-   return await axios.post("http://localhost:4000/forgot-password",envio)
+   return await axios.post("https://midenuncia-database-production.up.railway.app/forgot-password",envio)
     
 
 }
@@ -30,7 +30,7 @@ export async function  EnvioEmailResetpassword (envio){
 
 export async function  nuevaContrasena (envio){
 
-    return await axios.put("http://localhost:4000/newPassword",envio)
+    return await axios.put("https://midenuncia-database-production.up.railway.app/newPassword",envio)
      
  
  }

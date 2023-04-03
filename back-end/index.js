@@ -98,7 +98,7 @@ app.use('/',routeAuthGoogle)
 //otra ruta// Cambio de contraseña
 
 app.get('/verificacionToken', async (req, res) => {
-  const { v4: uuidv4 } = require('uuid');
+ 
 
   //const uniqueId = uuidv4();
   const {token,email} = req.query;
@@ -107,7 +107,7 @@ app.get('/verificacionToken', async (req, res) => {
     const user1=new SessionModel
     user1.sessionID=req.sessionID
     user1.session=user.email
-    identificadorUUI=uuidv4()
+    
     user1.save()
     req.session.email=user.email
    
