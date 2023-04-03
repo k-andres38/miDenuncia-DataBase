@@ -51,7 +51,10 @@ app.use(session({
   crypto: {
     secret: 'secret'
   },
-  secure:true,
+  cookie: {
+    secure: true, // solo enviar cookies a través de HTTPS
+  },
+  
   collection: 'sessions',
   // expires: 60 * 60 * 24 * 7, // 7 days
   expires: 120, // 2 minutes
