@@ -144,6 +144,7 @@ app.get('/verificacionToken', async (req, res) => {
 ////////////////////////////////////////////////////////////////
 //INICIO
 app.put('/newPassword', async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
 
   let {password, password2} = req.body;
 
