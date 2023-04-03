@@ -104,7 +104,7 @@ app.use('/',routeAuthGoogle)
 app.get('/verificacionToken', async (req, res) => {
  
 
-  //const uniqueId = uuidv4();
+ 
   const {token,email} = req.query;
    await User.findOne({where: {resetPasswordToken:token}})
   .then(user => {
