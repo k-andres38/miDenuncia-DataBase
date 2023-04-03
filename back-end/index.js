@@ -134,7 +134,7 @@ app.put('/newPassword', async (req, res) => {
 
 
 
-console.log(req.sessionStore)
+console.log(req)
 //console.log(email);
 const seesionid = Object.keys(req.sessionStore.sessions)[0]
 //console.log(seesionid)
