@@ -46,7 +46,7 @@ const handleError = require('./handlers/handlerError')
 app.use(session({
   secret: 'mysecret', // secreto para firmar las cookies de sesión
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: MongoStore.create({ mongoUrl: process.env.URI_MONGO,
   crypto: {
     secret: 'secret'
@@ -134,7 +134,7 @@ app.put('/newPassword', async (req, res) => {
 
 
 
-console.log(req.session)
+console.log(req.sessionStore)
 //console.log(email);
 const seesionid = Object.keys(req.sessionStore.sessions)[0]
 //console.log(seesionid)
