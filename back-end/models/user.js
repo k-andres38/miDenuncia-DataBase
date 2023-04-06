@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'user',
-    paranoid: true,
+    // paranoid: true,
     // validate: {
     //   userValidation() {
     //     if (this.name.length < 2) {
