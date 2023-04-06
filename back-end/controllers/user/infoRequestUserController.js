@@ -9,7 +9,7 @@ exports.infoRequestUser = async (req,res,next) => {
     let news= await modelRequest.findAll({include: [,modelUser,modelTypeRequest]})
 
     // let storeUser= await modelRating.findAll({include: [modelUser]});
-        res.status(200).json({[news]})
+        res.status(200).json({news})
     //res.status(200).send(JSON.stringify({storeRequest,storeUser}))
     } catch (error) {
         res.send(error)
