@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       description: {
-        type: Sequelize.STRING(250)
+        type: Sequelize.TEXT
       },
       photo: {
         type: Sequelize.STRING(100)
