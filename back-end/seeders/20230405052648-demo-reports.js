@@ -15,6 +15,7 @@ module.exports = {
           	request_id:1,
           	user_id:1,
             likes_id:1,
+            comment_id:1,
 
           createdAt:new Date() ,
           updatedAt:new Date()
@@ -30,8 +31,8 @@ module.exports = {
           	type_report_id:2,
           	request_id:2,
           	user_id:2,
-            likes_id:1,
-         
+            likes_id:2,
+            comment_id:2,
 
             createdAt:new Date() ,
             updatedAt:new Date()
@@ -47,7 +48,8 @@ module.exports = {
               type_report_id:3,
               request_id:2,
               user_id:3,
-              likes_id:1,
+              likes_id:3,
+              comment_id:3,
               createdAt:new Date() ,
               updatedAt:new Date()
                 
