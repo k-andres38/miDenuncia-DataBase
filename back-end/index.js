@@ -1,84 +1,198 @@
 
-// const app=require('./app')
+const app=require('./app')
+const bcrypt=require('bcrypt')
 
+const User=require('./models').user
+const SessionModel=require('./modeloMongo/sessionMongodb')
 
-// ////aqui hacemos las importaciones y que todo quede dentro de ella
-// //const express = require('express');
-// const dotenv = require('dotenv');
-// const cors = require('cors')
-// const sgMail=require('./services/sendgrid')
+////aqui hacemos las importaciones y que todo quede dentro de ella
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors')
 // const session = require('express-session');
-// //const { auth } = require('express-openid-connect');
-// const morgan = require('morgan')
-// dotenv.config()
-
-// const passport= require('passport');
-
-// //FIN
-// ////////////////////////////////////////////////////////////////
-
-// ///aqui se LLAMAN A A LAS RUTAS las rutas generales y que todo quede dentro de ella
-// const routes = require('./routes/routeUsers/route')
-// const routesComment = require('./routes/routeComments/route')
-// const routeRequest=require('./routes/routeRequest/route')
-
-// //FIN
-// ////////////////////////////////////////////////////////////////
+//const { auth } = require('express-openid-connect');
+const morgan = require('morgan')
+dotenv.config()
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 
-// /// codigo especial para procesar solicitudes HTTP y expres json lo convierta en json
-// app.use(express.urlencoded({extended: true}));
-// app.use(express.json());
+//mongoose.connect(process.env.URI_MONGO)
 
-// app.use(cors()); //proteccion de cabecera
-// //app.use(morgan('tiny'));//monitoreo de solicitudes
-// ////////////////////////////////////////////////////////////////
+let cookieParser = require('cookie-parser')
 
-// ///aqui se configura la ENTRADA  A LAS RUTAS trabajando  solo rutas
+//FIN
+////////////////////////////////////////////////////////////////
 
-// app.use('/',routes)
-// app.use('/',routeRequest)
-// app.use('/', routesComment)
-
-// //FIN
-// ////////////////////////////////////////////////////////////////
+///aqui se LLAMAN A A LAS RUTAS las rutas generales y que todo quede dentro de ella
+const routes = require('./routes/routeUsers/route')
+const routesComment = require('./routes/routeComments/route')
+const routeRequest=require('./routes/routeRequest/route')
+const routeEmail = require('./routes/routeEmail/nodemail')
+const routeAuthGoogle = require('./routes/routeGoogle/route')
+const handleError = require('./handlers/handlerError')
 
 
+//FIN
+////////////////////////////////////////////////////////////////
+ mongoose.connect(process.env.URI_MONGO, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+});
 
 
-// ////////////////////////////////////////////////////////////////
-// //INICIO
-// //codigo especial para los usuarios de GOOGLE
-// app.use(session({
-//   secret: 'MIDENUNCIA',
-//   resave: false,
-//   saveUninitialized: false
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({
+  secret: 'mysecret', // secreto para firmar las cookies de sesión
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: process.env.URI_MONGO,
+  crypto: {
+    secret: 'secret'
+  },
+  cookie: {
+    secure: true, // solo enviar cookies a través de HTTPS
+    maxAge: 24 * 60 * 60 * 1000 // 1 día de duración
+  },
+  
+  collection: 'sessions',
+  // expires: 60 * 60 * 24 * 7, // 7 days
+  expires: 120, // 2 minutes
+  model: SessionModel,
+  
+  // ttl: 24 * 60 * 60, // 1 día de vida útil })
+})}));
 
 
-// require('./middleware/auth2UserGoogle')
+//////////////////////////////////
 
 
-// app.get('/google',
-//   passport.authenticate('google', { scope: ['profile','email'] }));
+/// codigo especial para procesar solicitudes HTTP y expres json lo convierta en json
+app.use(cookieParser())
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
-// app.get('/google/callback', 
-//   passport.authenticate('google', { failureRedirect: '/login' }),(req, res)=> {
+app.use(cors({
+  origin: 'http://localhost:5173',
+  exposedHeaders: ['Authorization']
+}));
+// ////app.use(cors()); //proteccion de cabecera
+
+app.use(morgan('tiny'));//monitoreo de solicitudes
+////////////////////////////////////////////////////////////////
+
+///aqui se configura la ENTRADA  A LAS RUTAS trabajando  solo rutas
+
+app.use('/',routes)
+app.use('/',routeRequest)
+app.use('/', routesComment)
+app.use('/',routeEmail)
+app.use('/',routeAuthGoogle)
+
+//FIN
+////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//INICIO
+////////////////////////////////////////////////////////////////
+
+
+
+
+//otra ruta// Cambio de contraseña
+
+app.get('/verificacionToken', async (req, res) => {
  
-//     res.status(200).json({message: 'success',data:req.user});
+
+ 
+  const {token,email} = req.query;
+   await User.findOne({where: {resetPasswordToken:token}})
+   
+  .then(user => {
+    // const user1=new SessionModel
+    // user1.sessionID=req.sessionID
+    // user1.session=user.email
     
-//   });
+    // user1.save()
+    // req.session.email=user.email
+
+    const session = new SessionModel({
+      sessionID: req.sessionID,
+      session: user.email
+    });
+    
+    session.save();
+    
+    req.session.email = user.email;
+   
+    
+    const url = `http://localhost:5173/contrasenaNueva?token=${user.resetPasswordToken}&email=${user.email}}`;
+  res.redirect(url)
+  }).catch(err => {
+    res.send('token no funciona')
+  });
+ 
+  
+
+})
+
+////////////////////////////////////////////////////////////////
+//INICIO
+app.put('/newPassword', async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+
+  let {password, password2} = req.body;
+
+
+
+console.log(req)
+//console.log(email);
+const seesionid = Object.keys(req.sessionStore.sessions)[0]
+//console.log(seesionid)
+
+const sessioUser= await SessionModel.findOne({ sessionID: seesionid })
+  .then(user => {
+    console.log(user)
+    
+   
+      User.findOne({ where: {email:user.session}})
+        .then(user=>{
+          if(user){
+           
+            password2 = bcrypt.hashSync(password2,10);
+             User.update({password: password2},
+              {where: {email: user.email}})
+              .then(user => res.status(200).json({ message: 'cambio de contraseña exitoso!'}))
+              .catch(err => res.json({ message: err.message }))
+          }else{
+            res.status(400).json({ message: "no se pudo" })
+          }
+
+        }).catch(err => res.json({ message: err.message}))
+      
+
+
+  })
+  .catch(error => console.error('Error al buscar usuario', error));
+
 
   
-// //FIN
-// ////////////////////////////////////////////////////////////////
+})
 
- 
-
-// const port= 4000
-
-// app.listen(port, () => {
-//   console.log('El servidor está escuchando en el puerto ' + port);
-// });
+app.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+     // console.log("Sesión finalizada correctamente");
+      // Eliminar el token de autenticación de la base de datos
+      
+      res.redirect("http://localhost:5173/login");
+    }
+  });
+});

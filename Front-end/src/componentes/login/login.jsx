@@ -1,44 +1,36 @@
-import React from "react";
+import { React,useState } from "react";
 import style from './login.module.css'
-import {loginBd} from '../baseDedatos'
+import {EnvioLoginBd} from '../baseDeDatos'
+import {llenardatos} from '../ProtegerRutas'
+
+
 
 import { Link,useNavigate } from 'react-router-dom'
 import { AiOutlineUser,AiOutlineLock,AiFillGoogleCircle } from "react-icons/ai";
 import { useForm} from 'react-hook-form';
-import { useState, useEffect } from "react";
 
 function Login() {
-    const [estado, setEstado]=useState(null)
-
-    const miostyle={
-        margin : "10px",
-        color:"white"
-
-    }
-   
 
     const {register,handleSubmit,formState:{errors}} = useForm()
+    const [error,setError] = useState(null)
+    // const [user , setUser] = useState(null)
     const navigate = useNavigate();
-    
-    const onSubmit = value =>{
 
-        console.log(value);
-       
-       loginBd(value).then(res =>{
-           res.data.user ? navigate("/usuarioLog") :  console.log('algo esta mal');
-            
+    const  onSubmit = value =>{
 
-        }).catch(err => {
-            setEstado(err.response.data)
-           
-          
+        EnvioLoginBd(value).then(res => {
+            if (res.status === 200) {
+                llenardatos(res)
+                navigate('/usuarioLog')
+            }
+            else{
+                setError(res.response.data.message)
+            }
         })
 
-    
-        
     }
 
-    
+
 
     return (
         <div className={`contenedor ${style.login_Contenedor}`}>
@@ -46,6 +38,8 @@ function Login() {
 
                 <div className={`contenedor ${style.contenedor_top}`}>
                     <h2 className={style.tituloLogin}>MI DENUNCIA</h2>
+                    <p className={style.error}> { error } </p>
+
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className={`contenedor ${style.formulario_login}`}>
@@ -61,7 +55,7 @@ function Login() {
                                 message : "el usuario es requerido"
                             }
                         })} type="text" className={style.inputLogin} placeholder="Usuario o Correo" />
-                        {errors.usuario && <span className={style.error}>{errors.usuario.message}</span>}
+                        {errors.nickname && <span className={style.error}>{errors.nickname.message}</span>}
                     </label>
 
                     <label className={style.label}><AiOutlineLock className={style.iconLogin}/>
@@ -77,9 +71,6 @@ function Login() {
                         })} type="password" className={style.inputLogin}  placeholder="Contraseña"/>
                         {errors.password && <span className={style.error}>{errors.password.message}</span>}
                     </label>
-                        
-                     
-                       {estado && estado.message && <p style={miostyle} >{estado.message}</p>}
 
                     <button type="submit" className={`btn ${style.btnLogin}`}>Iniciar Sesión</button>
                      
@@ -88,11 +79,11 @@ function Login() {
                 <div className={`contenedor ${style.contenedor_bottom}`}>
                     <div className={`contenedor ${style.cont_regiscontra}`}>
                         <p className={style.textoLogin}>¿No tienes Cuenta? <samp className={style.samp}><Link className={style.link} to="/RegistroUsuario"> REGISTRATE</Link></samp></p>
-                        <p className={style.textoLogin}>¿Olvidaste tu <samp className={style.samp}><Link className={style.link} to="/RegistroUsuario">CONTRASEÑA</Link></samp>? </p>
+                        <p className={style.textoLogin}>¿Olvidaste tu  <samp className={style.samp}><Link className={style.link} to="/recuperarContrasena">CONTRASEÑA</Link></samp>? </p>
                     </div>
                     <div className={`contenedor ${style.iniciar_google}`}> 
                         <AiFillGoogleCircle className={style.google}/>
-                        <p>Iniciar sesión con Google</p> 
+                        <p><a className={style.a} href="http://localhost:4000/google">Iniciar sesión con Google</a></p> 
                     </div>
 
                 </div>
