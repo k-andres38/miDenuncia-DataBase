@@ -6,9 +6,9 @@ const modelRating = require('../../models').rating
 exports.infoRequestUser = async (req,res,next) => {
 
     try {
-    let storeRequest= await modelRequest.findAll({include: [modelTypeRequest]})
+    let storeRequest= await modelRequest.findAll({include: [modelTypeRequest,modelUser]})
 
-    let storeUser= await modelRating.findAll({include: [modelUser]});
+    // let storeUser= await modelRating.findAll({include: [modelUser]});
 
     res.status(200).send(JSON.stringify({storeRequest,storeUser}))
     } catch (error) {
