@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      user.belongsTo(models.likes,{
+      likes.belongsTo(models.user,{
        
           foreignKey:"user_id"
         })
 
-        user.hasOne(models.reports,{
+        likes.hasOne(models.report,{
        
-          foreignKey:"likes_id "
+          foreignKey:"likes_id"
         })
         
      

@@ -13,7 +13,7 @@ const MongoStore = require('connect-mongo');
 
 
 
-mongoose.connect(process.env.URI_MONGO, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
  // useCreateIndex: true
@@ -24,14 +24,14 @@ app.use(session({
   secret: 'mysecret', // secreto para firmar las cookies de sesión
   resave: false,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: process.env.URI_MONGO,
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI,
   crypto: {
     secret: 'secret'
   },
   collection: 'sessions',
   // expires: 60 * 60 * 24 * 7, // 7 days
   expires: 120, // 2 minutes
-  model: SessionModel,
+  //model: SessionModel,
   
   // ttl: 24 * 60 * 60, // 1 día de vida útil })
 })}));

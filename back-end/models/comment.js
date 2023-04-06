@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       comment.belongsTo(models.user,{
         foreignKey:"user_id"
       })
-      comment.hasOne(models.reports,{
+      comment.hasOne(models.report,{
         foreignKey:"comment_id"
       })
       // report.hasOne(models.reports,{

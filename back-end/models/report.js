@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:"likes_id"
       })
 
-      report.belongsTo(models.comments,{
+      report.belongsTo(models.comment,{
         foreignKey:"comment_id"
       })
     }

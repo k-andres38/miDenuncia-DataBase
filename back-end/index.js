@@ -36,7 +36,7 @@ const handleError = require('./handlers/handlerError')
 
 //FIN
 ////////////////////////////////////////////////////////////////
- mongoose.connect(process.env.URI_MONGO, {
+ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
@@ -47,7 +47,7 @@ app.use(session({
   secret: 'mysecret', // secreto para firmar las cookies de sesión
   resave: false,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: process.env.URI_MONGO,
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI,
   crypto: {
     secret: 'secret'
   },
