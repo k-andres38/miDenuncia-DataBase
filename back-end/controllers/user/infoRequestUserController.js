@@ -2,12 +2,14 @@ const modelUser = require('../../models').user;
 const modelRequest = require('../../models').request;
 const modelTypesReport = require('../../models').types_report;
 const modelReport=require('../../models').report;
-const modelRating = require('../../models').rating
+const modelComment=require('../../models').comment;
+const modelLikes=require('../../models').likes;
+//const modelRating = require('../../models').rating
 
 exports.infoRequestUser = async (req,res,next) => {
 
     try {
-    const news= await modelReport.findAll({include: [modelTypesReport,modelRequest,modelUser]})
+    const news= await modelReport.findAll({include: [modelLikes,modelTypesReport,modelRequest,modelUser,modelComment]})
     
 
     // let storeUser= await modelRating.findAll({include: [modelUser]});
