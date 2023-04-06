@@ -7,7 +7,8 @@ const modelRating = require('../../models').rating
 exports.infoRequestUser = async (req,res,next) => {
 
     try {
-    let news= await modelReport.findAll({include: [modelTypesReport,modelRequest,modelUser]})
+    const news= await modelReport.findAll({include: [modelTypesReport,modelRequest,modelUser]})
+    
 
     // let storeUser= await modelRating.findAll({include: [modelUser]});
         res.status(200).json({news})

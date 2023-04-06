@@ -18,19 +18,9 @@ module.exports = {
       status: {
         type: Sequelize.TINYINT(1)
       },
-      request_id: {
-        type: Sequelize.INTEGER(5),
-        references:{
-
-          model:'requests',
-          key:'id'
-
-        }
-
-      },
-      user_id: {
-        type: Sequelize.INTEGER(5),
-        references:{
+       user_id: {
+       type: Sequelize.INTEGER(5),
+       references:{
           model:'users',
           key:'id'
         }

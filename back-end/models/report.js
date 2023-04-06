@@ -21,6 +21,14 @@ module.exports = (sequelize, DataTypes) => {
       report.belongsTo(models.request,{
         foreignKey:"request_id"
       })
+      
+      report.belongsTo(models.likes,{
+        foreignKey:"likes_id"
+      })
+
+      report.belongsTo(models.comments,{
+        foreignKey:"comment_id"
+      })
     }
   }
   report.init({
@@ -28,9 +36,11 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     photo: DataTypes.STRING,
     status: DataTypes.TINYINT,
+    likes_id:DataTypes.INTEGER,
     type_report_id: DataTypes.INTEGER,
     request_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    comment_id:DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'report',
