@@ -10,13 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      document.hasOne(models.user,{
-        foreignKey:"document_id"
+      document.hasOne(models.user, {
+        foreignKey: "document_id"
       })
     }
   }
   document.init({
     type: DataTypes.CHAR,
+  //  // number_document: DataTypes.STRING,
     place_dispatch: DataTypes.STRING
   }, {
     sequelize,

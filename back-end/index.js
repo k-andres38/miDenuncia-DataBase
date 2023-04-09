@@ -31,12 +31,13 @@ const routesComment = require('./routes/routeComments/route')
 const routeRequest=require('./routes/routeRequest/route')
 const routeEmail = require('./routes/routeEmail/nodemail')
 const routeAuthGoogle = require('./routes/routeGoogle/route')
+const routeCreateRequest = require('./routes/routeCreateRequest/route') // --> creado por farit
 const handleError = require('./handlers/handlerError')
 
 
 //FIN
 ////////////////////////////////////////////////////////////////
- mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
@@ -89,6 +90,7 @@ app.use('/',routeRequest)
 app.use('/', routesComment)
 app.use('/',routeEmail)
 app.use('/',routeAuthGoogle)
+app.use('/',routeCreateRequest) // --> creado por farit
 
 //FIN
 ////////////////////////////////////////////////////////////////
