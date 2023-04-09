@@ -1,7 +1,8 @@
 import axios from 'axios'
+import clientHTTP from '../config/configAxios'
 
 export async function EnvioLoginBd(envio) {
-       let respuesta = await axios.post("https://midenuncia-database-production.up.railway.app/signIn",envio)
+       let respuesta = await axios.post("https://midenuncia-database-production.up.railway.app/signIn",envio        )
                 .then(res => res)
                 .catch(err => err) 
         return respuesta
@@ -14,35 +15,20 @@ export function EnvioResgistrarBd(envio) {
     .catch(err => console.log(err))
 
 }
+/* se creo una carpeta config en el cual contiene la url base,para que modifiquen cada peticion de la siguente forma */ 
+/*
+export async function traerUsuario(id) {
+    return await clientHTTP.get(`/getUser/${id}`)
+    .catch(err => console.log(err))
+} */
 
-
-
-// esto envia el un enlace al email para recuperar contrasena
-export async function  EnvioEmailResetpassword (envio){
-
-   return await axios.post("https://midenuncia-database-production.up.railway.app/forgot-password",envio)
-    
-
+//nosotros
+export async function traerUsuario(id) {
+    return await axios.put(`http://localhost:4000/request/${id}`)
+   // .catch(err => console.log(err))
 }
 
-
-// esta funcion resetea la contrasena del usuario con el enlace enviado al correo
-
-export async function  nuevaContrasena (envio){
-
-    return await axios.put("https://midenuncia-database-production.up.railway.app/newPassword",envio)
-     
- 
- }
-
-
-
-// esta funcion es para cambiar la contrasena del usuario logueado 
-export async function  EnvioContrasenaNueva (envio){
-
-    return await axios.put("http://localhost:4000/recoverPassword/4",envio)
-     
- 
- }
-
- 
+// export async function traerUsuario(id) {
+//     return await axios.get('/src/componentes/peticionesUsuarios/traerUsuario.json')
+//     .catch(err => console.log(err))
+// }
