@@ -24,7 +24,7 @@ export async function traerUsuario(id) {
 
 //nosotros
 export async function traerUsuario(id) {
-    return await axios.put(`http://localhost:4000/request/${id}`)
+    return await axios.put(`https://midenuncia-database-production.up.railway.app/request/${id}`)
    // .catch(err => console.log(err))
 }
 

@@ -73,11 +73,15 @@ app.use(session({
 app.use(cookieParser())
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-
 app.use(cors({
   origin: 'http://localhost:5173',
   exposedHeaders: ['Authorization']
 }));
+
+// app.use(cors({
+//   origin: 'http://localhost:5173',
+//   exposedHeaders: ['Authorization']
+// }));
 // ////app.use(cors()); //proteccion de cabecera
 
 app.use(morgan('tiny'));//monitoreo de solicitudes
