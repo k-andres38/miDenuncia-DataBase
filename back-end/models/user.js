@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'user',
-    // paranoid: true,
+    // paranoid: true,// esto es para eliminacion de borrado logico
     // validate: {
     //   userValidation() {
     //     if (this.name.length < 2) {
