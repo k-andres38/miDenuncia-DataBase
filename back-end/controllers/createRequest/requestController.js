@@ -74,8 +74,8 @@ exports.request = async (req, res, next) => {
                 user_id: req.params.id,
               })
               .then((request) => {
-                url = [url, url];
-                url = url.join(";");
+                // url = [url];
+                // url = url.join(";");
                 modelsPhoto
                   .create({
                     url,
