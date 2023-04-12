@@ -5,16 +5,14 @@ module.exports = {
     await queryInterface.createTable('documents', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        autoIncrement: false,
         primaryKey: true,
         type: Sequelize.INTEGER(11)
       },
       type: {
         type: Sequelize.CHAR(2)
       },
-      number_document: {
-        type: Sequelize.STRING(12)
-      },
+      
       place_dispatch: {
         type: Sequelize.STRING(50)
       },
@@ -25,6 +23,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      deletedAt:{
+        allowNull: false,
+        type:Sequelize.DATE
       }
     });
   },

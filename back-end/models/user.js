@@ -37,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     nickname: DataTypes.STRING,
     name: DataTypes.STRING,
     last_name: DataTypes.STRING,
+    staff_neighborhood: DataTypes.TEXT,    
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     token: DataTypes.STRING,
@@ -51,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'user',
-    // paranoid: true,// esto es para eliminacion de borrado logico
+    paranoid: true,// esto es para eliminacion de borrado logico
     // validate: {
     //   userValidation() {
     //     if (this.name.length < 2) {

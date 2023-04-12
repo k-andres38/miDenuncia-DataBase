@@ -18,6 +18,9 @@ module.exports = {
       last_name: {
         type: Sequelize.STRING(20)
       },
+      staff_neighborhood: {
+        type: Sequelize.TEXT
+      },
       email: {
         type: Sequelize.STRING(50),
         allowNull:false,
@@ -67,6 +70,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      deletedAt:{
+        allowNull: false,
+        type:Sequelize.DATE
       }
     });
   },

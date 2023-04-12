@@ -15,11 +15,15 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      photo: {
-        type: Sequelize.STRING(100)
-      },
       status: {
         type: Sequelize.TINYINT(1)
+      },
+      photo_id: {
+        type: Sequelize.INTEGER(5),
+        references:{
+          model:'photos',
+          key:'id'
+        }
       },
       likes_id:{
         type: Sequelize.INTEGER(5),
@@ -74,6 +78,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      deletedAt:{
+        allowNull: false,
+        type:Sequelize.DATE
       }
     });
   },

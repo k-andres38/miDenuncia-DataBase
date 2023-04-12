@@ -4,8 +4,6 @@ const createRequestController=require('../../controllers/request/createRequestCo
 const deleteRequestController=require('../../controllers/request/deleteRequestController');
 const updateRequestController=require('../../controllers/request/updateRequestController');
 
-//Esta bien?
-
 router.post('/createRequest',createRequestController.createRequest)
 router.delete('/deleteRequest/:id',deleteRequestController.deleteRequest)
 router.put('/updateRequest/:id',updateRequestController.updateRequest)

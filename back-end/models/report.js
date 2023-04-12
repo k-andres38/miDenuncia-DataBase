@@ -29,13 +29,16 @@ module.exports = (sequelize, DataTypes) => {
       report.belongsTo(models.comment,{
         foreignKey:"comment_id"
       })
+      report.belongsTo(models.photo,{
+        foreignKey:"photo_id"
+      })
     }
   }
   report.init({
     date: DataTypes.DATE,
     description: DataTypes.TEXT,
-    photo: DataTypes.STRING,
     status: DataTypes.TINYINT,
+    photo_id:DataTypes.INTEGER,
     likes_id:DataTypes.INTEGER,
     type_report_id: DataTypes.INTEGER,
     request_id: DataTypes.INTEGER,
@@ -43,7 +46,8 @@ module.exports = (sequelize, DataTypes) => {
     comment_id:DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'report',
+    modelName: 'report', 
+    paranoid: true,
   });
   return report;
 };

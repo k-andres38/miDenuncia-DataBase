@@ -14,14 +14,18 @@ module.exports = (sequelize, DataTypes) => {
       photo.belongsTo(models.request,{
         foreignKey:"request_id"
       })
+      photo.hasOne(models.report,{
+        foreignKey:"photo_id"
+      })
     }
   }
   photo.init({
-    url: DataTypes.STRING,
+    url:DataTypes.TEXT,
     request_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'photo',
+    paranoid: true,
   });
   return photo;
 };
