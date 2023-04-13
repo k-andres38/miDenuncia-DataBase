@@ -7,8 +7,7 @@ dotenv.config()
 exports.signIn = async (req, res, next) => {
 
     try {
-
-        let { nickname, password } = req.body;
+        let { nickname, password} = req.body;
         await modeloUser.findOne({ where: { nickname } }).then(user => {
             if (!user) {
                 res.status(400).json({ message: 'Usuario con este correo no encontrado' })
@@ -17,11 +16,14 @@ exports.signIn = async (req, res, next) => {
                     let token = jwt.sign({
                         user
                     }, process.env.JWT_SECRET, { expiresIn: '1h' });
-                    res.json({ user, token })
-                } else {
+                    res.json({
+                        attributes: ['name', 'last_name']
+                    })
+                } else {    
                     res.status(401).json({ message: 'contraseña no es correcta' })
                 }
             }
+            
         }).catch((err) => {
             res.status(400).json({ message: 'error de autenticacion'})
         });
