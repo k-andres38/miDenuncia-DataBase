@@ -10,7 +10,7 @@ const modelsPhoto = require("../../models").photo;
 exports.infoRequestUser = async (req, res, next) => {
   try {
 
-    await modelsRequest.findAll(
+    await modelsRequest.findAll( 
       {attributes: [
                 "id",
                 "location",
@@ -21,6 +21,8 @@ exports.infoRequestUser = async (req, res, next) => {
                 "support",
                 "status",
                 "tag",
+                "createdAt"
+                
                
                
               ],

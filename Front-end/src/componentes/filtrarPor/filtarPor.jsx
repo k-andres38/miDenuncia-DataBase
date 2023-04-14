@@ -68,12 +68,19 @@ function FiltarPor() {
       <div>
         {res.news
           ? res.news.map((data, index) => {
-              data.comments.map((comment) => console.log(comment.description));
               return (
-                <div><h2>prueba</h2>
-                <h2 style={{ color: "red" }} key={index} >{data.problem}</h2>;
+                <div key={index}>
+                  <h2>prueba</h2>
+                  <h2 style={{ color: "red", width:"100px", margin:"0 auto", "border-bottom":"5px solid green" }}>{data.problem}</h2>
+                  {data.comments.map((comment, index2) => {
+                    return (
+                      <h4 style={{ color: "white", width:"100px", margin:"0 auto","border-bottom":"2px solid purple"  }} key={index2}>
+                        {comment.description}
+                      </h4>
+                    );
+                  })}
                 </div>
-              )
+              );
             })
           : null}
       </div>

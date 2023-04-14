@@ -82,7 +82,7 @@ exports.request = async (req, res, next) => {
                 // url = [url];
                 // url = url.join(";");
                 const cloudPhoto = cloudinary.uploader.upload('D:/USUARIO W/Documents/Captura.PNG', {public_id: "calles2", folder: 'peticiones'})
-                console.log(__dirname+'Cap');
+               // console.log(__dirname+'Cap');
                 
                 cloudPhoto.then((data) => {
                   console.log(data);
@@ -110,12 +110,17 @@ exports.request = async (req, res, next) => {
                             photo_id: photos.id,
                             request_id: request.id, // no es request_id: request_id ??
                             description: problem,
-                          });
+                          },);
   
-                          const data = [user, photos, report];
-                          res.status(200).json({ data });
+                         // const data = [user, photos];
+                          res.status(200).json({ message:'successfull' });
                         });
                     });
+
+                    ///dayana
+
+
+                    //ESCRIBES EL CODIGO DE ENVIAR CORREO 
                 }).catch((err) => {
                   console.log(err);
                 });
