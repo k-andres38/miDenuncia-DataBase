@@ -26,6 +26,15 @@ module.exports = {
         }
 
       },
+      request_id:{
+        type: Sequelize.INTEGER(5),
+        references:{
+
+          model:'requests',
+          key:'id'
+          
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

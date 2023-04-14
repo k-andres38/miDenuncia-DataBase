@@ -28,6 +28,17 @@ export async function traerUsuario(id) {
    // .catch(err => console.log(err))
 }
 
+export async function tarjetas(){
+        
+    //return await axios.get(`http://localhost:4000/infoRequestUser/2`)
+
+        return await axios.get("http://localhost:4000/infoRequestUser")
+    
+}
+
+
+
+
 // export async function traerUsuario(id) {
 //     return await axios.get('/src/componentes/peticionesUsuarios/traerUsuario.json')
 //     .catch(err => console.log(err))

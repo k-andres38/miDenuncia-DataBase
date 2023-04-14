@@ -19,20 +19,7 @@ module.exports = {
         type: Sequelize.TINYINT(1)
       },
       photo_id: {
-        type: Sequelize.INTEGER(5),
-        references:{
-          model:'photos',
-          key:'id'
-        }
-      },
-      likes_id:{
-        type: Sequelize.INTEGER(5),
-        references:{
-          model:'likes',
-          key:'id'
-        }
-
-
+        type: Sequelize.STRING(255),
       },
       type_report_id: {
         type: Sequelize.INTEGER(1),
@@ -57,15 +44,6 @@ module.exports = {
         references:{
 
           model:'users',
-          key:'id'
-          
-        }
-      },
-      comment_id:{
-        type: Sequelize.INTEGER(5),
-        references:{
-
-          model:'comments',
           key:'id'
           
         }

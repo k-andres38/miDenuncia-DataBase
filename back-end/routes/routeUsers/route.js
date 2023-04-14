@@ -18,7 +18,7 @@ router.post('/signIn',signInUserController.signIn)
 
 router.put('/recoverPassword/:id',recoverPasswordUserLogController.recoverPasswordUserLog)
 router.get('/info',infoUserController.infoUser)
-router.get('/infoRequestUser',infoRequestUserController.infoRequestUser)
+router.get('/infoRequestUser/',infoRequestUserController.infoRequestUser)
 router.post('/forgot-password',forgotPasswordController.forgotPassword)
 router.get('/reset-password',resetPasswordController.resetPassword)
 router.post('/changePassword',changePasswordUserController.changePasswordUser)

@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       request.hasMany(models.photo,{
         foreignKey:"request_id"
       })
+
+      request.hasMany(models.comment,{
+        foreignKey:"request_id"
+      })
     }
   }
   request.init({
@@ -35,7 +39,9 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.TINYINT,
     tag: DataTypes.TINYINT,
     type_request_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    
+   
   }, {
     sequelize,
     modelName: 'request',

@@ -6,6 +6,9 @@ const modelsUser = require("../../models").user;
 const modelsRequest = require("../../models").request;
 const modelsPhoto = require("../../models").photo;
 const modelsReport = require("../../models").report;
+const cloudinary = require('cloudinary').v2;
+
+require('../../services/cloudinaryConfig')
 
 exports.request = async (req, res, next) => {
   try {
@@ -74,30 +77,52 @@ exports.request = async (req, res, next) => {
                 user_id: req.params.id,
               })
               .then((request) => {
+                //AQUI ENTRA LO DE CLOUDINARY 
+
                 // url = [url];
                 // url = url.join(";");
-                modelsPhoto
-                  .create({
-                    url,
-                    request_id: request.id,
-                  })
-                  .then((photos) => {
-                    modelsReport
-                      .create({
-                        problem,
-                      })
-                      .then((report) => {
-                        report.update({
-                          where: { photo_id: photos.id },
-                          photo_id: photos.id,
-                          request_id: request.id, // no es request_id: request_id ??
-                          description: problem,
-                        });
+                const cloudPhoto = cloudinary.uploader.upload('D:/USUARIO W/Documents/Captura.PNG', {public_id: "calles2", folder: 'peticiones'})
+                console.log(__dirname+'Cap');
+                
+                cloudPhoto.then((data) => {
+                  console.log(data);
+                  console.log(data.secure_url);
 
-                        const data = [user, photos, report];
-                        res.status(200).json({ data });
-                      });
+                  url = cloudinary.image("calles21.jpg", {
+                    width: 100,
+                    height: 150,
+                    Crop: 'fill'
                   });
+                  
+                  modelsPhoto
+                    .create({
+                      url:data.secure_url,
+                      request_id: request.id,
+                    })
+                    .then((photos) => {
+                      modelsReport
+                        .create({
+                          problem,
+                        })
+                        .then((report) => {
+                          report.update({
+                            where: { photo_id: photos.id },
+                            photo_id: photos.id,
+                            request_id: request.id, // no es request_id: request_id ??
+                            description: problem,
+                          });
+  
+                          const data = [user, photos, report];
+                          res.status(200).json({ data });
+                        });
+                    });
+                }).catch((err) => {
+                  console.log(err);
+                });
+             
+                
+
+                
               });
           });
       })

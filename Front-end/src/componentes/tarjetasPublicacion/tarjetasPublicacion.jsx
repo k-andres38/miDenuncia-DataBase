@@ -1,16 +1,28 @@
 import {React, useEffect, useState} from 'react'
 import style from './tarjetasPublicacion.module.css'
 import { userget } from './fetch';
+import { tarjetas } from '../baseDedatos';
 
 
-function TarjetasPublicacion() {
-   const [api,setApi] = useState()
+
+ function TarjetasPublicacion() {
    
-   useEffect(()=>{
-      userget().then(res => setApi(res.data))
-   },[])
+   
+//    useEffect(()=>{
+//       userget().then(res => setApi(res.data))
+//    },[])
 
-console.log(api)
+const [api,setApi] = useState()
+
+// for (let i = 0;i<5;i++){
+//    //    tarjetas(2).then(data=>{
+//    //    console.log(data)
+//    // }).catch(err=>console.log(err))
+   
+  
+// }
+
+   
    // userget().then(res => setApi(res))
 
 

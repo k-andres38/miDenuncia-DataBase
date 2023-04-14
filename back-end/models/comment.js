@@ -17,16 +17,17 @@ module.exports = (sequelize, DataTypes) => {
       comment.hasOne(models.report,{
         foreignKey:"comment_id"
       })
-      // report.hasOne(models.reports,{
-      //   foreignKey:"report_id"
-      // })
+      comment.belongsTo(models.request,{
+        foreignKey:"request_id"
+      })
     }
   }
   comment.init({
     date: DataTypes.DATE,
     description: DataTypes.STRING,
     status: DataTypes.TINYINT,
-    user_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    request_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'comment',

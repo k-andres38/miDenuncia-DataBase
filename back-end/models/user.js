@@ -24,12 +24,10 @@ module.exports = (sequelize, DataTypes) => {
         user.hasMany(models.report,{
           foreignKey:"user_id"
         })
-        user.hasMany(models.comment,{
+        user.hasOne(models.comment,{
           foreignKey:"user_id"
         })
-        user.hasOne(models.likes,{
-          foreignKey:"user_id"
-        })
+       
     }
   }
   user.init({
