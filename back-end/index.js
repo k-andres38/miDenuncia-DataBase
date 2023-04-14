@@ -33,6 +33,7 @@ const routeEmail = require('./routes/routeEmail/nodemail')
 const routeAuthGoogle = require('./routes/routeGoogle/route')
 const routeTypeRequest = require('./routes/routeTypeRequest/route')
 const routeCreateRequest = require('./routes/routeCreateRequest/route') // --> creado por farit
+const routeTypeReport = require('./routes/routeTypeReport/route') // --> creado por farit
 const handleError = require('./handlers/handlerError')
 
 
@@ -93,6 +94,7 @@ app.use('/', routesComment)
 app.use('/',routeEmail)
 app.use('/',routeAuthGoogle)
 app.use('/',routeCreateRequest) // --> creado por farit
+app.use('/', routeTypeReport) // --> creado por farit
 app.use('/',routeTypeRequest)
 
 //FIN
