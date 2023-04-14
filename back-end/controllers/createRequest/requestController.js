@@ -122,7 +122,7 @@ exports.request = async (req, res, next) => {
 
                     //ESCRIBES EL CODIGO DE ENVIAR CORREO 
                 }).catch((err) => {
-                  console.log(err);
+                  res.status(400).json({ message:err.message });
                 });
              
                 
