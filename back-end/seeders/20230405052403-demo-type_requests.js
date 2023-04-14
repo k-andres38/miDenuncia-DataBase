@@ -4,22 +4,32 @@ module.exports = {
     up: async (queryInterface, Sequelize) => {
         await queryInterface.bulkInsert('types_requests', [
             {
-                name: 'Pavimento',
+                name: 'Seguridad',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
-                name: 'Semaforo',
+                name: 'Malla Vial',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
-                name: 'Alumbrado publico',
+                name: 'Señalización Vial',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
-                name: 'Parques',
+                name: 'Espacios Públicos',
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+            {
+                name: 'Alumbrado Público',
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+            {
+                name: 'Contaminacion Ambiental',
                 createdAt: new Date(),
                 updatedAt: new Date()
             }

@@ -24,21 +24,41 @@ exports.infoRequestUser = async (req, res, next) => {
                
                
               ],
-        include: [{
-          model: modelsTypeRequest,
-          attributes: ["id", "name"]
-        },{
-          model: modelUser,
-          attributes: ["id", "nickname","name",]
-        },{
+               include: [modelsTypeRequest,modelUser,{
           model: modelsComment,
           attributes: ["id", "description"]
         }, {
           model: modelsPhoto,
           attributes: ["id", "url"]
         }, 
+
+      //  {
+      //   include:[
+      //     {modelsTypeRequest,
+      //       attributes: ["id", "name"]}
+      //   ,
+      //  {   model: modelUser,
+      //   attributes: ["id", "nickname","name",]}
+      //   ]
+      //  }
+    ]
         
-        ]
+        
+        // include: [{
+        //   model: modelsTypeRequest,
+        //   attributes: ["id", "name"]
+        // },{
+        //   model: modelUser,
+        //   attributes: ["id", "nickname","name",]
+        // },{
+        //   model: modelsComment,
+        //   attributes: ["id", "description"]
+        // }, {
+        //   model: modelsPhoto,
+        //   attributes: ["id", "url"]
+        // }, 
+        
+        // ]
       }
 
     ).then(news => {
@@ -47,60 +67,6 @@ exports.infoRequestUser = async (req, res, next) => {
     });
 
 
-    // await modelsRequest
-    //   .findByPk(
-    //     req.params.id,
-        
-    //         {
-    //       attributes: [
-    //         "id",
-    //         "location",
-    //         "neighborhood",
-    //         "subject",
-    //         "problem",
-    //         "solution",
-    //         "support",
-    //         "status",
-    //         "tag",
-           
-           
-    //       ],
-      
-    //      include:[{model:modelsTypeRequest,  attributes: ["id", "name"]},{model:modelUser, attributes: ["id", "nickname","name","last_name","staff_neighborhood"]}]}
-    //   )
-    //   .then((request) => {
-    //     if (!request) {
-    //       res.status(400).json({ message: 'post eliminado' });
-    //        return 
-    //     }
-       
-    //     modelsComment
-    //       .findAll(
-    //         { attributes: ["id", "description"] ,
-          
-    //          where: { request_id: req.params.id } },
-          
-    //       )
-    //       .then((comment) => {
-    //         modelsPhoto
-    //           .findAll(
-    //             { attributes: ["id", "url"] ,
-    //              where: { request_id: req.params.id } }
-    //           )
-
-    //           .then((photo) => {
-    //             res
-    //               .status(200)
-    //               .json({ news: { request, comment, photo }} );
-    //               //return
-    //           });
-    //       });
-
-    
-    //   })
-    //   .catch((err) => {
-    //     res.status(400).json({ message: err.message });
-    //   });
 
   } catch (error) {
     res.status(500).json({message:error});

@@ -3,22 +3,37 @@ module.exports={
     up: async (queryInterface, Sequelize) => {
         await queryInterface.bulkInsert('types_reports',[
             {
-                name:'Reporte por Pavimento y huecos',
+                name:'Ya se coluciono el Problema',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
-                name:'Reporte por Semaforo',
+                name:'Racismo',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
-                name:'Reporte por falta de alumbrado publico',
+                name:'Vulnera algun derecho',
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
-                name:'Reporte por parques, hay mucho bandidos',
+                name:'Abuso verbal',
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+            {
+                name:'Contenido explicito',
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+            {
+                name:'Expresión de odio',
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+            {
+                name:'Denuncia falsa',
                 createdAt: new Date(),
                 updatedAt: new Date()
             }

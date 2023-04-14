@@ -5,28 +5,42 @@ module.exports={
         await queryInterface.bulkInsert('comments',[
             {
                 date: new Date(),
-                description:'Excelente servicio',
+                description:'Es cierto ese semaforo no funciona bien ',
                 status:1,
               
                 user_id:1,
+                request_id:1,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 date: new Date(),
-                description:'Excelente servicio',
+                description:'que lo cambien, ese semaforo no funciona  ',
                 status:1,
+              
+                user_id:1,
+                request_id:1,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+            {
+                date: new Date(),
+                description:'cada vez que llueve se daña',
+                status:1,
+
               
                 user_id:2,
+                request_id:2,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 date: new Date(),
-                description:'Excelente servicio',
-                status:1,
+                description:'andar en moto por aqui es muy complicado',
+                status:2,
               
                 user_id:3,
+                request_id:2,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
