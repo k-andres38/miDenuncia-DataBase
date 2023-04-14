@@ -24,41 +24,22 @@ exports.infoRequestUser = async (req, res, next) => {
                
                
               ],
-               include: [modelsTypeRequest,modelUser,{
+        include: [{
+          model: modelsTypeRequest,
+          attributes: ["id", "name"]
+        },{
+          model: modelUser,
+          attributes: ["id", "nickname","name",]
+        },{
           model: modelsComment,
-          attributes: ["id", "description"]
+         attributes: ["id", "description"],
+            include:[{model:modelUser,attributes: ["id", "nickname","name"]}]
         }, {
           model: modelsPhoto,
           attributes: ["id", "url"]
         }, 
-
-      //  {
-      //   include:[
-      //     {modelsTypeRequest,
-      //       attributes: ["id", "name"]}
-      //   ,
-      //  {   model: modelUser,
-      //   attributes: ["id", "nickname","name",]}
-      //   ]
-      //  }
-    ]
         
-        
-        // include: [{
-        //   model: modelsTypeRequest,
-        //   attributes: ["id", "name"]
-        // },{
-        //   model: modelUser,
-        //   attributes: ["id", "nickname","name",]
-        // },{
-        //   model: modelsComment,
-        //   attributes: ["id", "description"]
-        // }, {
-        //   model: modelsPhoto,
-        //   attributes: ["id", "url"]
-        // }, 
-        
-        // ]
+        ]
       }
 
     ).then(news => {

@@ -24,7 +24,10 @@ module.exports = (sequelize, DataTypes) => {
         user.hasMany(models.report,{
           foreignKey:"user_id"
         })
-        user.hasOne(models.comment,{
+        user.hasMany(models.comment,{
+          foreignKey:"user_id"
+        })
+        user.hasOne(models.request,{
           foreignKey:"user_id"
         })
        
