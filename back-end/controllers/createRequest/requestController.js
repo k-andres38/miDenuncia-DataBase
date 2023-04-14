@@ -81,7 +81,7 @@ exports.request = async (req, res, next) => {
 
                 // url = [url];
                 // url = url.join(";");
-                const cloudPhoto = cloudinary.uploader.upload('D:/USUARIO W/Documents/Captura.PNG', {public_id: "calles2", folder: 'peticiones'})
+                const cloudPhoto = cloudinary.uploader.upload('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8HK2LbzeGcfVc-_Wei89RK8vcZ3LeFG3xaGGv2leirg&s', {public_id: "calles2", folder: 'peticiones'})
                // console.log(__dirname+'Cap');
                 
                 cloudPhoto.then((data) => {

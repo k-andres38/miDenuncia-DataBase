@@ -1,5 +1,4 @@
 import axios from 'axios'
-import clientHTTP from '../config/configAxios'
 
 export async function EnvioLoginBd(envio) {
        let respuesta = await axios.post("https://midenuncia-database-production.up.railway.app/signIn",envio        )
@@ -15,31 +14,11 @@ export function EnvioResgistrarBd(envio) {
     .catch(err => console.log(err))
 
 }
-/* se creo una carpeta config en el cual contiene la url base,para que modifiquen cada peticion de la siguente forma */ 
-/*
-export async function traerUsuario(id) {
-    return await clientHTTP.get(`/getUser/${id}`)
-    .catch(err => console.log(err))
-} */
 
-//nosotros
-export async function traerUsuario(id) {
-    return await axios.put(`https://midenuncia-database-production.up.railway.app/request/${id}`)
-   // .catch(err => console.log(err))
-}
 
-export async function tarjetas(){
-        
-    //return await axios.get(`http://localhost:4000/infoRequestUser/2`)
+export async function  EnvioEmailResetpassword (envio){
 
-        return await axios.get("http://localhost:4000/infoRequestUser")
+   return await axios.post("http://localhost:4000/forgot-password",envio)
     
+
 }
-
-
-
-
-// export async function traerUsuario(id) {
-//     return await axios.get('/src/componentes/peticionesUsuarios/traerUsuario.json')
-//     .catch(err => console.log(err))
-// }

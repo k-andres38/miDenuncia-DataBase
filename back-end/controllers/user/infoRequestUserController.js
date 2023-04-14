@@ -9,9 +9,13 @@ const modelsPhoto = require("../../models").photo;
 
 exports.infoRequestUser = async (req, res, next) => {
   try {
+    //const [offset,limit]=req.query
+   // console.log(limit)
 
     await modelsRequest.findAll( 
-      {attributes: [
+      {
+     // limit: limit,  offset:0,
+        attributes: [
                 "id",
                 "location",
                 "neighborhood",
