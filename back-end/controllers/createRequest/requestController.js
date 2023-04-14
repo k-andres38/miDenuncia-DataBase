@@ -115,6 +115,8 @@ exports.request = async (req, res, next) => {
                          // const data = [user, photos];
                           res.status(200).json({ message:'successfull' });
                         });
+                    }).catch((err) => {
+                      res.status(400).json({ message:err.message });
                     });
 
                     ///dayana
