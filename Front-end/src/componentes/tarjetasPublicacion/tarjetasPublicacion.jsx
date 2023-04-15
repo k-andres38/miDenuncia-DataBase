@@ -4,13 +4,13 @@ import { userget } from './fetch';
 
 
 function TarjetasPublicacion() {
-   // const [api,setApi] = useState()
+   const [api,setApi] = useState()
    
-   // useEffect(()=>{
-   //    userget().then(res => setApi(res.data))
-   // },[])
+   useEffect(()=>{
+      userget().then(res => setApi(res.data))
+   },[])
 
-
+console.log(api)
 
    // userget().then(res => setApi(res))
 
@@ -60,20 +60,6 @@ console.log(barrio)
 
         
    }, []);*/
-
-
-
-   const [count, setCount] = useState(null);
-   const [res, setRes] = useState([]);
- 
-   useEffect(() => {
-     tarjetas()
-       .then(({ data }) => {
-         setRes(data);
-       })
-       .catch((err) => console.log(err));
-      // setCount(count++);
-   }, []);
  
  return (
    <div className={style.contenedor}>

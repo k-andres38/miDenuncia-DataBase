@@ -76,7 +76,7 @@
 .error{
     margin: 3px;
     font-size: 0.9em;
-    color: rgb(255, 34, 34);
+    color: var(--primer-color);
 }
 
 .contenedor_bottom{
@@ -150,15 +150,10 @@
     } */
 
         .label{
-            width: 40%;
-            height: 12%;
-            margin: 10px;
-        } 
-
-        .registroUsuarios{
-        width: 35%;
-        height: 70%;
-    }
+            width: 45%;
+            height: 10%;
+            margin: 5px;
+        }
 
 
 }

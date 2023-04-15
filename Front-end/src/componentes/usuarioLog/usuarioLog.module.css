@@ -1,8 +1,7 @@
 .usuario_log{
     width: 100%;
-    height: auto;
+    height: 100vh;
     flex-direction: row;
-    align-items: flex-start;
     flex-wrap: wrap;
     background-color: var(--segundo-color);
 }
@@ -47,7 +46,7 @@
 }
 .cont_tarjetas{
     width: 100%;
-    height: auto;
+    height: 87%;
 }
 .logo{
     width: 30%;
@@ -120,7 +119,6 @@
 } */
 
 
-
 /* VISTA TABLET ----------------------------------------------------------------------------------------------------- */
 
 @media (min-width: 768px){
@@ -173,25 +171,9 @@
 
     }
 
-    .filtrar{
-        width: 20%;
-    }
-
     .cont_tarjetas{
-        width: 80%;
+        width: 70%;
         height: 87%;
     }
 
-}
-
-
-
-
-
-
-.pokemon{
-    width: 200px;
-    height: 100px;
-    margin: 10px;
-    background-color: aquamarine;
 }

@@ -14,7 +14,7 @@ exports.infoRequestUser = async (req, res, next) => {
 
     await modelsRequest.findAll( 
       {
-     // limit: limit,  offset:0,
+      limit: 5,  offset:0,
         attributes: [
                 "id",
                 "location",
