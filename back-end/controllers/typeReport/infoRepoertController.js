@@ -2,9 +2,12 @@ const modelsTypeReport = require('../../models').types_report; // --> creado por
 
 exports.inforeport = async(req,res,next)=>{
     try{
-        
-
-        await modelsTypeReport.findAll()
+        await modelsTypeReport.findAll({
+            attributes:[
+                "id",
+                "name"
+            ]
+        })
         .then(typeReports =>{
             res.status(200).json({message: typeReports})
         })
@@ -18,3 +21,5 @@ exports.inforeport = async(req,res,next)=>{
         res.json(error)
     }
 }
+
+
