@@ -26,9 +26,6 @@ exports.infoRequestUser = async (req, res, next) => {
                 "status",
                 "tag",
                 "createdAt"
-                
-               
-               
               ],
         include: [{
           model: modelsTypeRequest,

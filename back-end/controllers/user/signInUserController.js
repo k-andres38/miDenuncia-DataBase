@@ -8,7 +8,10 @@ exports.signIn = async (req, res, next) => {
 
     try {
         let { nickname, password} = req.body;
-        await modeloUser.findOne({ where: { nickname } }).then(user => {
+        await modeloUser.findOne({ 
+            where: { nickname },
+            //attributes: ["id", "name"]
+        }).then(user => {
             if (!user) {
                 res.status(400).json({ message: 'Usuario con este correo no encontrado' })
             } else {
@@ -16,9 +19,7 @@ exports.signIn = async (req, res, next) => {
                     let token = jwt.sign({
                         user
                     }, process.env.JWT_SECRET, { expiresIn: '1h' });
-                    res.json({
-                        attributes: ['name', 'last_name']
-                    })
+                    res.json({user});
                 } else {    
                     res.status(401).json({ message: 'contraseña no es correcta' })
                 }
@@ -30,4 +31,22 @@ exports.signIn = async (req, res, next) => {
     } catch (error) {
         res.status(404).json({ mensaje: 'Error authentication' })
     }
-}
+} 
+
+/* exports.signIn = async (req, res, next) => {
+  try {
+    const { nickname, password } = req.body;
+
+    await modeloUser.findOne({
+      where: { nickname },
+      attributes: ["name", "last_name", "email", "nickname", "token"],
+    }).then(user => {
+            res.status(200).json({user});
+    }).catch((err) => {
+        res.status(400).json({ message:err});
+    })
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({ mensaje: 'Error authentication' });
+  }
+}; */
