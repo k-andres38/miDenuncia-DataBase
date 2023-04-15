@@ -6,17 +6,23 @@ const modelsComment = require("../../models").comment;
 const modelsTypeRequest = require("../../models").types_request;
 
 const modelsPhoto = require("../../models").photo;
-const Sequelize = require('sequelize')
+const Sequelize = require("sequelize");
 
 exports.infoRequestUser = async (req, res, next) => {
   try {
     //const [offset,limit]=req.query
     // console.log(limit)
 
+    const currentPage = req.query.page || 1;
+    const offset = (currentPage  ) * 5;
+
     await modelsRequest
       .findAll({
         // limit: 5,
         // offset: 0,
+        offset,
+        limit: 5,
+        order: [["createdAt", "DESC"]],
         attributes: [
           "id",
           "location",
@@ -28,16 +34,15 @@ exports.infoRequestUser = async (req, res, next) => {
           "status",
           "tag",
           "createdAt",
-          // [Sequelize.literal(
-          //   `(SELECT COUNT(*) FROM comments WHERE comments.request_id = request.id AND comments.deletedAt IS NULL)`
-          // ), "comment_count"]
-          [Sequelize.literal(
-            `(SELECT COUNT(*) FROM comments WHERE comments.request_id = request.id AND comments.deletedAt IS NULL)`
-          ), "comment_count"]
-        
          
+          [
+            Sequelize.literal(
+              `(SELECT COUNT(*) FROM comments WHERE comments.request_id = request.id AND comments.deletedAt IS NULL)`
+            ),
+            "comment_count",
+          ],
         ],
-       
+
         include: [
           {
             model: modelsTypeRequest,
@@ -61,11 +66,9 @@ exports.infoRequestUser = async (req, res, next) => {
         ],
       })
       .then((news) => {
- 
         res.status(200).json({ news });
         // console.log(publicaciones);
       });
-      
   } catch (error) {
     res.status(500).json({ message: error });
   }
