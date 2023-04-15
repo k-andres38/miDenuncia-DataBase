@@ -6,53 +6,67 @@ const modelsComment = require("../../models").comment;
 const modelsTypeRequest = require("../../models").types_request;
 
 const modelsPhoto = require("../../models").photo;
+const Sequelize = require('sequelize')
 
 exports.infoRequestUser = async (req, res, next) => {
   try {
     //const [offset,limit]=req.query
-   // console.log(limit)
+    // console.log(limit)
 
-    await modelsRequest.findAll( 
-      {
-      limit: 5,  offset:0,
+    await modelsRequest
+      .findAll({
+        // limit: 5,
+        // offset: 0,
         attributes: [
-                "id",
-                "location",
-                "neighborhood",
-                "subject",
-                "problem",
-                "solution",
-                "support",
-                "status",
-                "tag",
-                "createdAt"
-              ],
-        include: [{
-          model: modelsTypeRequest,
-          attributes: ["id", "name"]
-        },{
-          model: modelUser,
-          attributes: ["id", "nickname","name",]
-        },{
-          model: modelsComment,
-         attributes: ["id", "description"],
-            include:[{model:modelUser,attributes: ["id", "nickname","name"]}]
-        }, {
-          model: modelsPhoto,
-          attributes: ["id", "url"]
-        }, 
+          "id",
+          "location",
+          "neighborhood",
+          "subject",
+          "problem",
+          "solution",
+          "support",
+          "status",
+          "tag",
+          "createdAt",
+          // [Sequelize.literal(
+          //   `(SELECT COUNT(*) FROM comments WHERE comments.request_id = request.id AND comments.deletedAt IS NULL)`
+          // ), "comment_count"]
+          [Sequelize.literal(
+            `(SELECT COUNT(*) FROM comments WHERE comments.request_id = request.id AND comments.deletedAt IS NULL)`
+          ), "comment_count"]
         
-        ]
-      }
-
-    ).then(news => {
-      res.status(200).json({news})
-     // console.log(publicaciones);
-    });
-
-
-
+         
+        ],
+       
+        include: [
+          {
+            model: modelsTypeRequest,
+            attributes: ["id", "name"],
+          },
+          {
+            model: modelUser,
+            attributes: ["id", "nickname", "name"],
+          },
+          {
+            model: modelsComment,
+            attributes: ["id", "description"],
+            include: [
+              { model: modelUser, attributes: ["id", "nickname", "name"] },
+            ],
+          },
+          {
+            model: modelsPhoto,
+            attributes: ["id", "url"],
+          },
+        ],
+      })
+      .then((news) => {
+ 
+        res.status(200).json({ news });
+        // console.log(publicaciones);
+      });
+      
   } catch (error) {
-    res.status(500).json({message:error});
+    res.status(500).json({ message: error });
   }
 };

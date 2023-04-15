@@ -44,6 +44,48 @@ module.exports={
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
+            {
+                date: new Date(),
+                description:'andar en moto por aqui es muy complicado',
+                status:2,
+              
+                user_id:3,
+                request_id:1,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+            {
+                date: new Date(),
+                description:'andar en moto por aqui es muy complicado',
+                status:2,
+              
+                user_id:3,
+                request_id:1,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            }, {
+                date: new Date(),
+                description:'andar en moto por aqui es muy complicado',
+                status:2,
+              
+                user_id:3,
+                request_id:1,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            }, {
+                date: new Date(),
+                description:'andar en moto por aqui es muy complicado',
+                status:2,
+              
+                user_id:3,
+                request_id:2,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+
+
+
+
 
         ],{});
 
