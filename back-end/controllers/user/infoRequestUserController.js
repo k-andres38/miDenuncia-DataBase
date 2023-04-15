@@ -13,16 +13,19 @@ exports.infoRequestUser = async (req, res, next) => {
     //const [offset,limit]=req.query
     // console.log(limit)
 
-    const currentPage = req.query.page || 1;
+    const currentPage = parseInt( req.query.offset) || 1;
+    const limit = parseInt( req.query.limit) || 5;
     const offset = (currentPage  ) * 5;
+    //console.log(currentPage,limit)
 
     await modelsRequest
       .findAll({
         // limit: 5,
         // offset: 0,
+        limit,
         offset,
-        limit: 5,
-        order: [["createdAt", "DESC"]],
+        
+        order: [["id", "DESC"]],
         attributes: [
           "id",
           "location",
