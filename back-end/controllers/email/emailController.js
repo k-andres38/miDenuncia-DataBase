@@ -29,10 +29,6 @@ const transporter = nodemailer.createTransport({
 ////// RUTA DE ENVIO DE EMAIL
 
 exports.sendEmail= async (req,res)=>{
-
-
-
-
   
   try {
     const { email } = req.query;
@@ -60,8 +56,6 @@ exports.sendEmail= async (req,res)=>{
       } else {
         res.status(200).json({message:`Correo electrónico enviado!`,message2:"verifica tu bandeja de entrada" })
       }})
-        
-
 
     }).catch(err=>{
       res.status(404).json({ message: 'Usuario no encontrado' });
