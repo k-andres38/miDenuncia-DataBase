@@ -49,7 +49,7 @@ exports.infoRequestUser = async (req, res, next) => {
             Sequelize.literal(
               `(SELECT COUNT(*) FROM supports WHERE supports.request_id = request.id AND supports.createdAt IS not NULL)`
             ),
-            "support_count",
+            "support",
           ],
         ],
 
