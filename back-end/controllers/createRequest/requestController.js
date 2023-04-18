@@ -167,7 +167,7 @@ exports.request = async (req, res, next) => {
 
                 // url = [url];
                 // url = url.join(";");
-                const cloudPhoto = cloudinary.uploader.upload('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8HK2LbzeGcfVc-_Wei89RK8vcZ3LeFG3xaGGv2leirg&s', {
+                const cloudPhoto = cloudinary.uploader.upload('https://www.elpais.com.co/files/article_multimedia_main_gallery/uploads/2017/02/21/58aca642b1058.jpeg', {
                   public_id: "calles2",
                   folder: 'peticiones'
                 })
