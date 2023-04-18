@@ -35,7 +35,7 @@ exports.infoRequestUser = async (req, res, next) => {
           "subject",
           "problem",
           "solution",
-          "support",
+         
           "status",
           "tag",
           "createdAt",
