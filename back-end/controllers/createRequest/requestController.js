@@ -114,7 +114,7 @@ exports.request = async (req, res, next) => {
     doc.end();
 
     await modelsUser
-      .findByPk(req.params.id)
+      .findByPk(req.params.id,{ attributes: ["id", "name","last_name","contact_phone","address","staff_neighborhood","document_id",]})
       .then((user) => {
         //modelsTypeRequest.create({ name })
 
@@ -257,7 +257,7 @@ exports.request = async (req, res, next) => {
                           //// ESTE ES EL MENJASE DE OK RESPUESTA
 
                           res.status(200).json({
-                            message: 'successfull'
+                            message: user
                           });
                         });
                     }).catch((err) => {
