@@ -30,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
         user.hasOne(models.request,{
           foreignKey:"user_id"
         })
+
+        user.hasOne(models.support,{
+          foreignKey:"user_id"
+        })
        
     }
   }

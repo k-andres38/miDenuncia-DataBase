@@ -5,6 +5,8 @@ const modelsComment = require("../../models").comment;
 
 const modelsTypeRequest = require("../../models").types_request;
 
+const modelsSupport = require("../../models").support;
+
 const modelsPhoto = require("../../models").photo;
 const Sequelize = require("sequelize");
 
@@ -43,6 +45,11 @@ exports.infoRequestUser = async (req, res, next) => {
               `(SELECT COUNT(*) FROM comments WHERE comments.request_id = request.id AND comments.deletedAt IS NULL)`
             ),
             "comment_count",
+          ],[
+            Sequelize.literal(
+              `(SELECT COUNT(*) FROM supports WHERE supports.request_id = request.id AND supports.createdAt IS not NULL)`
+            ),
+            "support_count",
           ],
         ],
 

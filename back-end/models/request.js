@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       request.hasMany(models.comment,{
         foreignKey:"request_id"
       })
+      request.hasMany(models.support,{
+        foreignKey:"request_id"
+      })
     }
   }
   request.init({

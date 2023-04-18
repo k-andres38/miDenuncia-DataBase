@@ -15,17 +15,35 @@ import Modales from '../modales/modales';
 export default function FormularioPeticion ({user}) {
   const [open, setOpen] = useState(true)
   const [loading, setLoading] = useState(false)
+
+  const [file, setFile] = useState(null);
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+  };
+
+
+  //TERMINA
+
   const dataImage = new FileReader()
-  dataImage.onload = (e) => e.target.result
+  //dataImage.onload = (e) => e.target.result
+  const image = e.target.result;
+  dataImage.readAsDataURL(url[0]);
 
   const { register, handleSubmit, formState: { errors }, watch } = useForm({
 		defaultValues: {...user}
 	})
 
   const enviar = (values) => {
+
+
+    // const formData = new FormData();
+    // formData.append("image", file);
 		const {type_request_id, type,document_id, place_dispatch, address, staff_neighborhood, contact_phone, subject, problem, solution, neighborhood, location, url} = values
 
     // const image = dataImage.onload(url[0])
+    const formData = new FormData();
+formData.append("image", url[0]);
     
     const request = {
       type_request_id: type_request_id,
@@ -39,7 +57,8 @@ export default function FormularioPeticion ({user}) {
       subject,
       problem,
       solution,
-      url: null,
+   //   url: null,
+      url:image,
       staff_neighborhood
     }
     Swal.fire({
@@ -95,7 +114,7 @@ export default function FormularioPeticion ({user}) {
 
   /* contenedor form */
   return (
-    <form action="" className={style.contenedorform} onSubmit={handleSubmit(enviar)}>
+    <form action="" className={style.contenedorform} onSubmit={handleSubmit(enviar)} encType="multipart/form-data">
       {loading && <Loading />}
       <p className={style.contenedortext}>
           Registro de solicitud - Recuerda que los campos con * son obligatorios
@@ -311,7 +330,7 @@ export default function FormularioPeticion ({user}) {
       <div className={style.infoimg}>
           <h3>Archivos adjuntos:</h3>
           <p>Señor/a usuario debe adjuntar solo fotos con un peso máximo de 5mb</p>
-          <input type="file"  id="file" accept='image/*' multiple className={style.inputfile}
+          <input type="file"  id="file" accept='image/*' className={style.inputfile} 
           {...register('url', {
             required: true
           })}	
