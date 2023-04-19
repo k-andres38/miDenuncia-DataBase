@@ -73,6 +73,8 @@ const transporter = nodemailer.createTransport({
 
 exports.request = async (req, res, next) => {
   try {
+
+   // console.log(req.body)
     let {
       name,
       type,
@@ -278,7 +280,7 @@ doc.text(`Tipo: ${req.body.type} `);
     doc.end();
 
     await modelsUser
-      .findByPk(req.params.id)
+      .findByPk(req.params.id,{ attributes: ["id", "name","last_name","contact_phone","address","staff_neighborhood","document_id",]})
       .then((user) => {
         //modelsTypeRequest.create({ name })
 
@@ -331,7 +333,7 @@ doc.text(`Tipo: ${req.body.type} `);
 
                 // url = [url];
                 // url = url.join(";");
-                const cloudPhoto = cloudinary.uploader.upload('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8HK2LbzeGcfVc-_Wei89RK8vcZ3LeFG3xaGGv2leirg&s', {
+                const cloudPhoto = cloudinary.uploader.upload('https://www.elpais.com.co/files/article_multimedia_main_gallery/uploads/2017/02/21/58aca642b1058.jpeg', {
                   public_id: "calles2",
                   folder: 'peticiones'
                 })
@@ -426,7 +428,7 @@ doc.text(`Tipo: ${req.body.type} `);
                           //// ESTE ES EL MENJASE DE OK RESPUESTA
 
                           res.status(200).json({
-                            message: 'successfull'
+                            message: user
                           });
                         });
                     }).catch((err) => {

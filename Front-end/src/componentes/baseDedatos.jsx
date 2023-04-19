@@ -18,7 +18,8 @@ export function EnvioResgistrarBd(envio) {
 
 export async function enviarPeticion(cuerpo, id) {
     return await axios.put(`https://midenuncia-database-production.up.railway.app/request/${id}`, cuerpo)
-        .then(res => res.data.data.filter(user => user.id === id))  
+        .then(res => res.data.filter(user => user.id === id))  
+       // .then(res =>console.log(res))  
         .catch(err => console.log(err))
 }
 
@@ -35,4 +36,11 @@ export async function enviarPeticion(cuerpo, id) {
 export async function traeTodoTipoSolicitudes() {
     return await axios.get(`https://midenuncia-database-production.up.railway.app/typerequest`)
         .catch(err => console.log(err))
+}
+
+export async function  EnvioEmailResetpassword (envio){
+
+   return await axios.post("http://localhost:4000/forgot-password",envio)
+    
+
 }

@@ -27,9 +27,7 @@ module.exports = {
       solution: {
         type: Sequelize.TEXT
       },
-      support: {
-        type: Sequelize.INTEGER(5)
-      },
+      
       status: {
         type: Sequelize.TINYINT(1)
       },

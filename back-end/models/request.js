@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       request.hasMany(models.comment,{
         foreignKey:"request_id"
       })
+      request.hasMany(models.support,{
+        foreignKey:"request_id"
+      })
     }
   }
   request.init({
@@ -35,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     subject: DataTypes.STRING,
     problem: DataTypes.TEXT,
     solution: DataTypes.TEXT,
-    support: DataTypes.INTEGER,
+   
     status: DataTypes.TINYINT,
     tag: DataTypes.TINYINT,
     type_request_id: DataTypes.INTEGER,

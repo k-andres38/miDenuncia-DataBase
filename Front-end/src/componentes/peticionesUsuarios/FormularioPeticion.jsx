@@ -23,14 +23,14 @@ export default function FormularioPeticion ({user}) {
 	})
 
   const enviar = (values) => {
-		const {type_request_id, type,document_id, place_dispatch, address, staff_neighborhood, contact_phone, subject, problem, solution, neighborhood, location, url} = values
+		const {type_request_id, type,number_document, place_dispatch, address, staff_neighborhood, contact_phone, subject, problem, solution, neighborhood, location, url} = values
 
     // const image = dataImage.onload(url[0])
     
     const request = {
       type_request_id: type_request_id,
       type,
-      document_id,
+      number_document,
       place_dispatch,
       address,
       contact_phone,
@@ -55,8 +55,10 @@ export default function FormularioPeticion ({user}) {
         setLoading(true)
         enviarPeticion(request, user.id)
           .then(userUpdate => {
+            console.log(userUpdate)
             const user = userUpdate[0]
-            console.log({user})
+           // console.log({user})
+         
             setLoading(false)
             if(user.id) {
               const oldUser = JSON.parse(localStorage.getItem('usuarioLogeado'))
@@ -147,7 +149,7 @@ export default function FormularioPeticion ({user}) {
 
               <div className={style.infolabel}>
                   <label htmlFor="documento">* Número de documento:</label>
-                  <input type="text" placeholder="91287459" id='documento' disabled={user.number_document} {...register('document_id', {
+                  <input type="text" placeholder="91287459" id='documento' disabled={user.number_document} {...register('number_document', {
                     required: true,
                     pattern: /^[0-9]{7,11}$/,
                     minLength: 7,
@@ -166,7 +168,7 @@ export default function FormularioPeticion ({user}) {
                     <input type="text" placeholder="91287459" id='cofirmacionDocumento' {...register('retry_document', {
                       required: true,
                       validate: (value) => {
-                        if (watch('document_id') !== value) return 'El documento no esta correcto'
+                        if (watch('number_document') !== value) return 'El documento no esta correcto'
                       }
                     })} />
                     {errors.retry_document?.type === 'required' && <p className={style.palabraError}>El numero de confirmacion del documento es requerido</p>}
@@ -311,7 +313,7 @@ export default function FormularioPeticion ({user}) {
       <div className={style.infoimg}>
           <h3>Archivos adjuntos:</h3>
           <p>Señor/a usuario debe adjuntar solo fotos con un peso máximo de 5mb</p>
-          <input type="file"  id="file" accept='image/*' multiple className={style.inputfile}
+          <input type="file" multiple id="file" accept='image/*' className={style.inputfile}
           {...register('url', {
             required: true
           })}	

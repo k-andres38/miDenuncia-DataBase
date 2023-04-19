@@ -10,7 +10,7 @@ module.exports={
                 subject:'El servicio del semaforo no funciona',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:100,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -25,7 +25,7 @@ module.exports={
                 subject:'carretera en mal estado',
                 problem:'Carretera  en mal estado',
                 solution:'mejorar carretera',
-                support:204,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -40,7 +40,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -55,7 +55,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -70,7 +70,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -85,7 +85,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -100,7 +100,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -115,7 +115,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -130,7 +130,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -145,7 +145,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -160,7 +160,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -175,7 +175,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -190,7 +190,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -205,7 +205,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -220,7 +220,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -235,7 +235,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -250,7 +250,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -265,7 +265,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -280,7 +280,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -295,7 +295,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -310,7 +310,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -325,7 +325,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -340,7 +340,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -355,7 +355,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -370,7 +370,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -385,7 +385,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -400,7 +400,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -415,7 +415,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -430,7 +430,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -445,7 +445,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -460,7 +460,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -475,7 +475,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -490,7 +490,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -505,7 +505,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -520,7 +520,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -535,7 +535,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -550,7 +550,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -565,7 +565,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -580,7 +580,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -595,7 +595,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -610,7 +610,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -625,7 +625,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -640,7 +640,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -655,7 +655,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -670,7 +670,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -685,7 +685,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -700,7 +700,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -715,7 +715,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -730,7 +730,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -745,7 +745,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -760,7 +760,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -775,7 +775,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -790,7 +790,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -805,7 +805,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -820,7 +820,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -835,7 +835,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -850,7 +850,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -865,7 +865,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -880,7 +880,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,
@@ -895,7 +895,7 @@ module.exports={
                 subject:'Solicitud de servicio',
                 problem:'El servicio del semaforo no funciona',
                 solution:'Se debe cambiar el semaforo',
-                support:301,
+                
                 status:1,
                 tag:2,
                 type_request_id:1,

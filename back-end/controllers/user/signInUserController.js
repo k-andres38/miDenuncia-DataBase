@@ -11,7 +11,7 @@ exports.signIn = async (req, res, next) => {
     await modeloUser
       .findOne({
         where: { nickname },
-        attributes: ["id", "nickname", "name","password"]
+        //attributes: ["id", "nickname", "name","password"]
       })
       .then((user) => {
         if (!user) {
@@ -33,6 +33,10 @@ exports.signIn = async (req, res, next) => {
                id: user.id,
                nickname: user.nickname,
                name: user.name,
+               last_name: user.last_name,
+               contact_phone: user.contact_phone,
+               address: user.address,
+               document_id: user.document_id,
                token
             });
           } else {
