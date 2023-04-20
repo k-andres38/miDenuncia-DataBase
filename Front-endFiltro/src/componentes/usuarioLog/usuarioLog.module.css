@@ -1,0 +1,226 @@
+.usuario_log{
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: var(--segundo-color);
+}
+.navLog{
+    width: 100%;
+    height: 13vh;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cont_left{
+    width: 40%;
+    /* height: 40%; */
+}
+.cont_Right{
+    width: 20%;
+    height: 80%;
+}
+.listaBoton{
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+}
+.li{
+    list-style: none;
+    padding: 2px;
+}
+.a{
+    text-decoration: none;
+}
+.iconsLog{
+    font-size: 2em; 
+    padding: 3px;
+    border-radius: 50px;
+    color: white;
+    background-color: var(--primer-color); 
+    margin: 5px;
+}
+.filtrar{
+    width: 30%;
+    height: 100%;
+    display: none;
+}
+.cont_tarjetas{
+    width: 100%;
+    height: auto;
+}
+.logo{
+    width: 30%;
+    height: 6vh;
+    margin-left: 2rem;
+    margin-top: .5rem;
+    cursor: pointer;
+}
+
+/* CONTENEDOR DE NOTIFICAION Y BUSQUEDA Y  LISTA DESPLEGABLE */
+
+
+
+
+.despegableNotificaion{
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 90vh;
+    border-radius: 6px;
+    border-right: solid 3px var(--primer-color);
+    border-bottom: solid 3px var(--primer-color);
+    background-color: var(--tercer-color);
+    color: white;
+    padding: 0 10px 0 10px;
+    
+}
+.despegableNotificaion li{
+    text-align: start;
+    font-size: 20px;
+}
+.despegableNotificaion li:hover{
+    background-color: #434b52;
+    cursor: pointer;
+}
+
+.despegableFiltro{
+    display: none;
+    position: absolute;
+    right: 10%;
+    width: 160px;
+    height: auto;
+    border-radius: 6px;
+    border-right: solid 3px var(--primer-color);
+    border-bottom: solid 3px var(--primer-color);
+    background-color: var(--tercero-color);
+    color: white;
+}
+.liFiltrados{
+    width: 90%;
+    border-bottom: solid 3px #3d3d3d;
+    margin: 10px;
+    font-size: 0.8em;
+}
+@media (max-width: 768px) {
+    .peticion {
+      /* Estilos de posicionamiento */
+      position: fixed;
+      bottom: 20px;
+      right: 5px;
+      /* Otros estilos de apariencia */
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .peticiones{
+    width: 3.5rem;
+    height: 3.5rem;
+    }
+  }
+@media (min-width: 280px) {
+    .logo{
+        margin: 0;
+        width: 100%;
+        height: auto;
+    }
+    .icon{
+        width: .5rem;
+        height: .5rem;
+    }
+}
+/* Mq Celular */
+@media(min-width:320px)and (max-width:480px) {
+    .logo{
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* VISTA TABLET ----------------------------------------------------------------------------------------------------- */
+/* Mq Tablet peq */
+@media(min-width:481px)and (max-width:767px) {
+    .logo{
+        width: 80%;
+        height: auto;
+    }
+}
+/* Mq Tablet peq */
+@media(min-width:768px)and (max-width:1024px) {
+    
+
+    .cont_left{
+        justify-content: flex-start;
+    }
+
+    .listaBoton{
+        justify-content: flex-end;
+        margin-right: 20px;
+    }
+
+    .iconsLog{
+        font-size: 3.5em; 
+    }
+
+    .despegableNotificaion{
+        width: 400px;
+        height: auto;
+    }
+
+    .despegableFiltro{
+        width: 400px;
+        height: auto;
+
+    }
+
+    .liFiltrados{
+        font-size: 2em;
+        margin: 15px;
+    }
+
+    .logo{
+        width: 50%;
+        height: auto;
+    }
+
+}
+
+/* VISTA DESKTOP ----------------------------------------------------------------------------------------------------- */
+
+@media (min-width: 1024px){
+    
+    .filtrar{
+        height: 87%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+    }
+
+    .filtrar{
+        width: 20%;
+    }
+
+    .cont_tarjetas{
+        width: 80%;
+        height: 87%;
+    }
+
+    .notificaciones{
+    display: none;
+    } 
+
+    .logo{
+        height: auto;
+        width: 50%;
+    }
+
+}
+
+.pokemon{
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    background-color: aquamarine;
+}

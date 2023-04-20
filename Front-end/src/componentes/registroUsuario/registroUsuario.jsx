@@ -10,7 +10,7 @@ import {BsMailbox} from "react-icons/bs"
 import "animate.css";
 import { Link,useNavigate  } from 'react-router-dom'
 
- 
+
 function RegistroUsuario() {
 
     const { register, handleSubmit,formState:{errors}} = useForm();

@@ -1,4 +1,5 @@
 const modeloUser = require("../../models").user;
+const modelsDocument=require("../../models").document;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
@@ -10,7 +11,7 @@ exports.signIn = async (req, res, next) => {
     let { nickname, password } = req.body;
     await modeloUser
       .findOne({
-        where: { nickname },
+        where: { nickname },include:[modelsDocument],
         //attributes: ["id", "nickname", "name","password"]
       })
       .then((user) => {
@@ -27,16 +28,20 @@ exports.signIn = async (req, res, next) => {
               process.env.JWT_SECRET,
               { expiresIn: "1h" }
             );
-            user.update({token})
+            user.update(token)
             user.save();
             res.json({
+              
                id: user.id,
                nickname: user.nickname,
                name: user.name,
                last_name: user.last_name,
                contact_phone: user.contact_phone,
                address: user.address,
+               staff_neighborhood: user.staff_neighborhood,
                document_id: user.document_id,
+               type:user.document.type,
+              place_dispatch:user.document.place_dispatch,
                token
             });
           } else {

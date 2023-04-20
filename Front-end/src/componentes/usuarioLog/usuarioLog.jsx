@@ -24,10 +24,6 @@ function UsuarioLog(params) {
     const [estadoModal , setEstadoModal] = useState(false)
     // ESTADO DE LAS PUBLICACIONES
     const [publicaciones, setPublicaciones] = useState()
-
-    //ESTADO PARA FILTRAR LAS PETICIONES
-    const [estado, setEstado] = useState()
-    const [pag, setPag] = useState()
     // EL NUMERO DE LA PUBLICACION QUE SE MUESTRA
     const [numeroPublicacion, setNumeroPublicacino] = useState(0)
     // NUMERO DE LA PAGINACION EN LA QUE VA LA PETICION
@@ -45,33 +41,20 @@ function UsuarioLog(params) {
     function nuevoLlamado(page) {
         fetch(`https://midenuncia-database-production.up.railway.app/infoRequestUser?limit=5&offset=${page}`)
         .then(res => res.json())
-        .then(res => {  
-            setPag(page)
+        .then(res => {
+            console.log(res.news);
             let nuevaPublicaiones = publicaciones.concat(res.news)
             setPublicaciones(nuevaPublicaiones)
             setPaginaPublicaciones( paginaPublicaciones + 1)
         })
     }
 
-    // function llamarTarjetas (publicaciones) {
-    //     let nuevasPublicaciones = publicaciones.map( (publicacion, index) =>{
-    //        return  <TarjetasPublicacion api={publicacion} index={index} key={publicaciones[index].id}/>
-    //     })
-    //     return nuevasPublicaciones
-    // }
-    function  llamarTarjetas (publicaciones) {
-      //  let nuevasTarjetas = publicaciones.filter(publicacion => publicacion ? publicacion.types_request.name===estado : true)
-        //console.log(nuevasTarjetas)
-       let nuevasPublicaciones= publicaciones.map((publicacion,index)=>{
-                //console.log(publicacion)
-               // console.log(index+1)
-               return  <TarjetasPublicacion api={publicacion} index={index} key={publicaciones[index].id}/>
-
+    function llamarTarjetas (publicaciones) {
+        let nuevasPublicaciones = publicaciones.map( (publicacion, index) =>{
+           return  <TarjetasPublicacion  key={publicaciones[index].id}/>
         })
-
-       return nuevasPublicaciones
+        return nuevasPublicaciones
     }
-          
     
     function Logout(){
         //Borra el localStorage
@@ -147,7 +130,7 @@ function UsuarioLog(params) {
             </div>
 
             <div className={`contenedor ${style.filtrar}`}>
-                <FiltrarPor setEstado={setEstado}  />
+                <FiltrarPor/>
             </div>
 
             <div className={`contenedor ${style.cont_tarjetas}`}>

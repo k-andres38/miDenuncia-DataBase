@@ -1,15 +1,12 @@
 .fondo{
     position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100%;
     backdrop-filter: blur(10px);
     display: none;
 }
 .open{
-    display: flex;
+    display: block;
 }
 .cerrar{
     width: 40px;
@@ -30,14 +27,15 @@
 }
 .modalOpen{
     position: relative;
-    width: 22rem;
-    height: 115vh;
+    top: 2rem;
+    left: 6rem;
+    width: 25rem;
+    height: 120vh;
     border-right: solid 3px var(--primer-color);
     border-bottom: solid 3px var(--primer-color);
     border-radius: 20px; 
-    background: var(--segundo-color);
-    /* overflow: hidden;     */
-    overflow: auto ;
+    background: var(--tercer-color);
+    z-index: 1000;
 }
 .tituloReporte{
     font-size: 2.5em;
@@ -49,65 +47,12 @@
     margin: 10px;
     text-align: start;
 }
-.cont_checkbox{
-    width: 100%;
-    align-items: start;
-    color: white;   
-}
-.labelCheck{
-    display: flex;
+.contResulto{
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    gap: 10px;
 }
-.labelResulto{
-    flex-direction: row;
-    color: #00FF19;
-    margin: 10px;
-    gap: 10px;
+.inputResulto{
+    background-color:  red;
 }
-.labelTextArea{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.textArea{
-    background-color: var(--tercer-color);
-    color: white;
-    font-size: 1em;
-    border: none;
-}
-.checkbox{
-    appearance: none;
-    width: 32px;
-    height: 32px;
-    border: 3px solid var(--primer-color);
-    cursor: pointer;
-}
-.checkResulto{
-    border: 3px solid #00FF19;
-}
-
-.checkbox:checked {
-    background-image: url('../modalReportes/checksImg/checkReporte.png') ;
-    background-position: center;
-    background-size: cover;
-}
-.checkResulto:checked {
-    background-image: url('../modalReportes/checksImg/checkResulto.png') ;
-    background-position: center;
-    background-size: cover;
-}
-.cont_boton{
-    margin: 20px 0;
-}
-/* .checkbox:focus {
-    background-color: rgb(94, 94, 94);
-} */
-
 
 @media (min-width: 700px){
     .modalOpen{
