@@ -74,6 +74,8 @@ const transporter = nodemailer.createTransport({
 exports.request = async (req, res, next) => {
   try {
 
+    console.log(req.files)
+
    // console.log(req.body)
     let {
       name,

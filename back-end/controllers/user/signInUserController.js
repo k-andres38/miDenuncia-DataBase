@@ -37,13 +37,13 @@ exports.signIn = async (req, res, next) => {
                name: user.name,
                last_name: user.last_name,
                contact_phone: user.contact_phone,
-               address: user.address,
-               staff_neighborhood: user.staff_neighborhood,
-               document_id: user.document_id,
-               type:user.document.type,
-              place_dispatch:user.document.place_dispatch,
+                address: user.address,
+                staff_neighborhood: user.staff_neighborhood,
+                document_id: user.document_id,
+              //   document:user.document.type,
+              // place_dispatch:user.document.place_dispatch,
                token
-            });
+            })
           } else {
             res.status(401).json({ message: "contraseña no es correcta" });
           }

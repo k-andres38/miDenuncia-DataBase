@@ -17,6 +17,13 @@ export default function FormularioPeticion({ user }) {
 	const [open, setOpen] = useState(false)
 	const [loading, setLoading] = useState(false)
 
+
+	const [imagenes, setImagenes] = useState([]);
+
+  const handleFileChange = (event) => {
+    setImagenes(event.target.files);
+  };
+
 	const {
 		register,
 		handleSubmit,
@@ -43,10 +50,18 @@ export default function FormularioPeticion({ user }) {
 			url
 		} = values
 
-		const formData = new FormData()
+		// const form = document.getElementById("peticiones");
+		// const formData = new FormData(form)
 
-		for (const image in url) {
-			formData.append("image[]", image)
+		// for (const image in url) {
+		// 	formData.append("image[]", image)
+		// 	console.log(image.name)
+		// }
+
+		const formData = new FormData();
+		for (let i = 0; i < imagenes.length; i++) {
+		  formData.append("image[]", imagenes[i]);
+		  console.log(imagenes[i])
 		}
 
 		const request = {
@@ -86,7 +101,7 @@ export default function FormularioPeticion({ user }) {
 						const oldUser = JSON.parse(localStorage.getItem("usuarioLogeado"))
 						
 
-						const newJson = { ...oldUser, data: { ...user.user,} }
+						const newJson = { ...oldUser, data: { ...user.user,...user.doc} }
 					
 						
 					
@@ -148,6 +163,7 @@ export default function FormularioPeticion({ user }) {
 		<>
 			<form
 				action=""
+				id="peticiones"
 				className={style.contenedorform}
 				onSubmit={handleSubmit(enviar)}
 			>
@@ -521,6 +537,8 @@ export default function FormularioPeticion({ user }) {
 						{...register("url", {
 							required: true
 						})}
+						name="image[]"
+						onChange={handleFileChange}
 					/>
 					<label htmlFor="file">
 						<CiInboxOut size={25} />
