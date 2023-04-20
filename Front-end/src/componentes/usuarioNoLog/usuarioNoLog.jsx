@@ -17,13 +17,16 @@ function UsuarioNoLog() {
     }),[])
 
     function tarjetasNoLog() {
-        let nuevasTarjetas = publicaciones.filter(publicacion => publicacion ? publicacion.types_request.name===estado  : true)
+        
         //console.log(nuevasTarjetas)
-       let publicacionTarjeta= nuevasTarjetas.map((api,index)=>{
+       let publicacionTarjeta= publicaciones.map((api,index)=>{
                // console.log(api)
             return <Tarjetas api={api} index={index} />
 
         })
+        console.log(publicacionTarjeta)
+
+         publicacionTarjeta = publicaciones.filter(publicacion => publicacion ? publicacion.types_request.name===estado  : true)
 
        return publicacionTarjeta
           
