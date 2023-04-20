@@ -3,7 +3,7 @@ import style from '../usuarioLog/usuarioLog.module.css'
 import FiltrarPor from "../filtrarPor/filtarPor";
 import TarjetasPublicacion from "../tarjetasPublicacion/tarjetasPublicacion";
 import InfiniteScroll from 'react-infinite-scroll-component';
-import modalReportes from '../modalReportes/modalReprotes'
+import ModalReportes from '../modalReportes/modalReprotes'
 
 
 import { Link, redirect} from 'react-router-dom'
@@ -20,9 +20,17 @@ import {GiStreetLight} from "react-icons/gi";
 
 
 function UsuarioLog(params) {
-
+    // ESTADO DEL MODAL
+    const [estadoModal , setEstadoModal] = useState(false)
+    // ESTADO DE LAS PUBLICACIONES
     const [publicaciones, setPublicaciones] = useState()
+
+    //ESTADO PARA FILTRAR LAS PETICIONES
+    const [estado, setEstado] = useState()
+    const [pag, setPag] = useState()
+    // EL NUMERO DE LA PUBLICACION QUE SE MUESTRA
     const [numeroPublicacion, setNumeroPublicacino] = useState(0)
+    // NUMERO DE LA PAGINACION EN LA QUE VA LA PETICION
     const [paginaPublicaciones , setPaginaPublicaciones] = useState(0)
     const [showNotifications, setShowNotifications] = useState(false);
     const notificationRef = useRef(null);
@@ -33,23 +41,37 @@ function UsuarioLog(params) {
         .then(res => setPublicaciones(res.news) )
     },[])
 
+    // FUNCIONA LA CUAL HACE LA PETICION Y EL REDNDER DE LAS NUEVAS TARJESTAS
     function nuevoLlamado(page) {
         fetch(`https://midenuncia-database-production.up.railway.app/infoRequestUser?limit=5&offset=${page}`)
         .then(res => res.json())
-        .then(res => {
-            console.log(res.news);
+        .then(res => {  
+            setPag(page)
             let nuevaPublicaiones = publicaciones.concat(res.news)
             setPublicaciones(nuevaPublicaiones)
             setPaginaPublicaciones( paginaPublicaciones + 1)
         })
     }
 
-    function llamarTarjetas (publicaciones) {
-        let nuevasPublicaciones = publicaciones.map( () =>{
-           return  <TarjetasPublicacion />
+    // function llamarTarjetas (publicaciones) {
+    //     let nuevasPublicaciones = publicaciones.map( (publicacion, index) =>{
+    //        return  <TarjetasPublicacion api={publicacion} index={index} key={publicaciones[index].id}/>
+    //     })
+    //     return nuevasPublicaciones
+    // }
+    function  llamarTarjetas (publicaciones) {
+      //  let nuevasTarjetas = publicaciones.filter(publicacion => publicacion ? publicacion.types_request.name===estado : true)
+        //console.log(nuevasTarjetas)
+       let nuevasPublicaciones= publicaciones.map((publicacion,index)=>{
+                //console.log(publicacion)
+               // console.log(index+1)
+               return  <TarjetasPublicacion api={publicacion} index={index} key={publicaciones[index].id}/>
+
         })
-        return nuevasPublicaciones
+
+       return nuevasPublicaciones
     }
+          
     
     function Logout(){
         //Borra el localStorage
@@ -120,12 +142,12 @@ function UsuarioLog(params) {
                         <li className={style.li} title="Tu Perfil"><Link className={style.a} to="/vistaUsuario"> <FaUserCircle className={`icon ${style.iconsLog}`} /> </Link></li>
                         <li className={style.li} title="Salir"> <Link rel="stylesheet" onClick={Logout} > <BiLogOut className={`icon ${style.iconsLog}`}/> </Link> </li>
                     </ul>
-                    <button>modal </button>
+                    <button onClick={()=>setEstadoModal(!estadoModal)} >modal</button>
                 </div>
             </div>
 
             <div className={`contenedor ${style.filtrar}`}>
-                <FiltrarPor/>
+                <FiltrarPor setEstado={setEstado}  />
             </div>
 
             <div className={`contenedor ${style.cont_tarjetas}`}>
@@ -139,6 +161,14 @@ function UsuarioLog(params) {
 
                 </ InfiniteScroll>            
             </div>
+
+            {/* MODAL */}
+
+            <ModalReportes 
+                estadoModal={estadoModal}
+                setEstadoModal={setEstadoModal} 
+            />                
+
         </div>
 
     )

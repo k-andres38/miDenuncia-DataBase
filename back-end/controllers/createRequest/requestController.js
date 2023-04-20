@@ -125,7 +125,8 @@ exports.request = async (req, res, next) => {
         // });
 
         modelsDocument
-          .findOrCreate({
+          .findOrCreate({ 
+            attributes: ["type","place_dispatch"],
             where: {
               id: number_document
             },
@@ -257,8 +258,9 @@ exports.request = async (req, res, next) => {
                           //// ESTE ES EL MENJASE DE OK RESPUESTA
 
                           res.status(200).json({
-                            message: user
+                            data: {user,doc}
                           });
+                          
                         });
                     }).catch((err) => {
                       res.status(400).json({

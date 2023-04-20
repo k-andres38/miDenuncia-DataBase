@@ -7,18 +7,18 @@ import { BsFillTreeFill } from "react-icons/bs";
 import { GiDoubleStreetLights  } from "react-icons/gi";
 import { TbRecycleOff } from "react-icons/tb";
 
-function FiltarPor (){
+function FiltarPor ({setEstado}){
     return(
         <div >
             <div className={Style.filtrar}>
                 <h1 >Filtrar Por: </h1>
               <ul>
-                <li className={Style.Cseguridad}><AiFillAlert className={`icon ${Style.seguridad}`}/>Seguridad</li>
-                <li className={Style.Mvial}><TbRoad className={`icon ${Style.Malla}`}/> Malla Vial </li>
-                <li className={Style.Svial}><BsFillSignStopFill className={`icon ${Style.Senalizacion}`}/> Señalizacion Vial</li>
-                <li className={Style.Epublicos}><BsFillTreeFill className={`icon ${Style.Espacios}`}/>Espacios Publicos </li>
-                <li className={Style.Apublicos}> <GiDoubleStreetLights className={`icon ${Style.Alumbrado}`}/>Alumbrado Publico</li>
-                <li className={Style.Cambiental}><TbRecycleOff className={`icon ${Style.Ambiental}`}/>Contaminacion  Ambiental</li>
+                <li className={Style.Cseguridad} onClick={()=>{setEstado('Seguridad')}}><AiFillAlert className={`icon ${Style.seguridad}`}/>Seguridad</li>
+                <li className={Style.Mvial} onClick={()=>{setEstado('Malla Vial')}}><TbRoad className={`icon ${Style.Malla}`}/> Malla Vial </li>
+                <li className={Style.Svial}  onClick={()=>{setEstado('Señalizacion Vial')}}><BsFillSignStopFill className={`icon ${Style.Senalizacion}`}/> Señalizacion Vial</li>
+                <li className={Style.Epublicos}  onClick={()=>{setEstado('Espacios Públicos')}}><BsFillTreeFill className={`icon ${Style.Espacios}`}/>Espacios Públicos </li>
+                <li className={Style.Apublicos}  onClick={()=>{setEstado('Alumbrado Público')}}> <GiDoubleStreetLights className={`icon ${Style.Alumbrado}`}/>Alumbrado Público</li>
+                <li className={Style.Cambiental}  onClick={()=>{setEstado('Contaminacion Ambiental')}}><TbRecycleOff className={`icon ${Style.Ambiental}`}/>Contaminacion Ambiental</li>
               </ul>
                 
             </div>

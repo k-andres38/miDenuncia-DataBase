@@ -8,6 +8,7 @@ import Tarjetas from "../tarjetasPublicacion/tarjetasPublicacion";
 function UsuarioNoLog() {
 
     const [publicaciones, setPublicaciones] = useState()
+    const [estado, setEstado] = useState()
 
     useEffect((()=>{
         fetch(`https://midenuncia-database-production.up.railway.app/infoRequestUser?limit=10&offset=0`)
@@ -16,18 +17,29 @@ function UsuarioNoLog() {
     }),[])
 
     function tarjetasNoLog() {
-        let nuevasTarjetas = publicaciones.map(()=>{
-            return <Tarjetas />
+        let nuevasTarjetas = publicaciones.filter(publicacion => publicacion ? publicacion.types_request.name===estado  : true)
+        //console.log(nuevasTarjetas)
+       let publicacionTarjeta= nuevasTarjetas.map((api,index)=>{
+               // console.log(api)
+            return <Tarjetas api={api} index={index} />
+
         })
-        return nuevasTarjetas
+
+       return publicacionTarjeta
+          
+            
+        
+        // nuevasTarjetas.filter(publicacion => publicacion ? publicacion.types_request===estado  : true)
+       // return nuevasTarjetas
     }
 
     return (
             <div>
                 <NavegacionNoLog/>
                 <div className={Style.main}>
-                <FiltrarPor/>    
+                <FiltrarPor setEstado={setEstado} />    
                     <div className={`contenedor ${Style.contTarjetas}`}>
+                     
 
                     { publicaciones === undefined ? null : tarjetasNoLog()}
 
