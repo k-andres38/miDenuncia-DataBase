@@ -1,6 +1,7 @@
 
 const app=require('./app')
 const bcrypt=require('bcrypt')
+const path = require('path')
 
 const User=require('./models').user
 const SessionModel=require('./modeloMongo/sessionMongodb')
@@ -80,6 +81,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
+app.use(express.static('/back-end/public/'));
 
 // app.use(cors({
 //   origin: 'http://localhost:5173',

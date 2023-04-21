@@ -18,7 +18,10 @@ export function EnvioResgistrarBd(envio) {
 }
 
 export async function enviarPeticion(cuerpo, id) {
-    return await axios.put(`http://localhost:4000/request/${id}`, cuerpo)
+    return await axios.post(`http://localhost:4000/request/${id}`, cuerpo,{
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }})
         .then(res => res.data.data) 
         .catch(err => console.log(err)) 
 }

@@ -50,19 +50,16 @@ export default function FormularioPeticion({ user }) {
 			url
 		} = values
 
-		// const form = document.getElementById("peticiones");
-		// const formData = new FormData(form)
-
-		// for (const image in url) {
-		// 	formData.append("image[]", image)
-		// 	console.log(image.name)
-		// }
+	
 
 		const formData = new FormData();
 		for (let i = 0; i < imagenes.length; i++) {
 		  formData.append("image[]", imagenes[i]);
-		  console.log(imagenes[i])
+		
 		}
+
+		let archivo=formData.getAll("image[]");
+	
 
 		const request = {
 			type_request_id: type_request_id,
@@ -76,7 +73,7 @@ export default function FormularioPeticion({ user }) {
 			subject,
 			problem,
 			solution,
-			url: formData,
+			url: archivo,
 			staff_neighborhood
 		}
 
@@ -95,7 +92,7 @@ export default function FormularioPeticion({ user }) {
 					
 					const user = userUpdate
 				//	console.log(user)
-					
+				//	console.log(user)
 					setLoading(false)
 					if (user.user.id) {
 						const oldUser = JSON.parse(localStorage.getItem("usuarioLogeado"))
@@ -164,7 +161,9 @@ export default function FormularioPeticion({ user }) {
 			<form
 				action=""
 				id="peticiones"
+				encType="multipart/form-data"
 				className={style.contenedorform}
+				method="post" 
 				onSubmit={handleSubmit(enviar)}
 			>
 				{loading && <Loading />}
@@ -537,7 +536,7 @@ export default function FormularioPeticion({ user }) {
 						{...register("url", {
 							required: true
 						})}
-						name="image[]"
+						//name="image"
 						onChange={handleFileChange}
 					/>
 					<label htmlFor="file">

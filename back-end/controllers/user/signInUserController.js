@@ -9,13 +9,16 @@ dotenv.config();
 exports.signIn = async (req, res, next) => {
   try {
     let { nickname, password } = req.body;
+    
     await modeloUser
       .findOne({
-        where: { nickname },include:[modelsDocument],
+        where: { nickname },
         //attributes: ["id", "nickname", "name","password"]
       })
       .then((user) => {
-        if (!user) {
+
+       const doc= modelsDocument.findOne({where: {id: user.document_id}})
+        if (!user || !doc) {
           res
             .status(400)
             .json({ message: "Usuario con este correo no encontrado" });
@@ -40,9 +43,10 @@ exports.signIn = async (req, res, next) => {
                 address: user.address,
                 staff_neighborhood: user.staff_neighborhood,
                 document_id: user.document_id,
-              //   document:user.document.type,
-              // place_dispatch:user.document.place_dispatch,
-               token
+                token,
+                type:doc.type,
+                place_dispatch:doc.place_dispatch
+               
             })
           } else {
             res.status(401).json({ message: "contraseña no es correcta" });
