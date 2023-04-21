@@ -14,6 +14,8 @@ import TiposSolicitudes from "./TiposSolicitudes"
 import Modales from "../modales/modales"
 
 export default function FormularioPeticion({ user }) {
+
+	console.log(user)
 	const [open, setOpen] = useState(false)
 	const [loading, setLoading] = useState(false)
 
@@ -91,7 +93,8 @@ export default function FormularioPeticion({ user }) {
 				enviarPeticion(request, user.id).then(async (userUpdate) => {
 					
 					const user = userUpdate
-				//	console.log(user)
+					
+					
 				//	console.log(user)
 					setLoading(false)
 					if (user.user.id) {
