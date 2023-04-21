@@ -353,7 +353,7 @@ doc.image(imageBuffer, { width: 300 });*/
 
                     modelsPhoto
                       .create({
-                        url: imagen[0],
+                        url: imagen[0]+" "+(imagen[1]? imagen[1]:" "),
                         request_id: request.id,
                       })
                       .then((photos) => {
