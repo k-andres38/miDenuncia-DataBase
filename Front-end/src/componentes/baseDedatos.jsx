@@ -3,7 +3,7 @@ import clientHTTP from '../config/configAxios'
 
 export async function EnvioLoginBd(envio) {
     //   let respuesta = await axios.post("https://midenuncia-database-production.up.railway.app/signIn",envio)
-       let respuesta = await axios.post("http://localhost:4000/signIn",envio)
+       let respuesta = await axios.post("https://midenuncia-database-production.up.railway.app/signIn",envio)
                 .then(res => res)
                 .catch(err => err) 
         return respuesta
@@ -11,14 +11,14 @@ export async function EnvioLoginBd(envio) {
 
 export function EnvioResgistrarBd(envio) {
 
-    axios.post("http://localhost:4000/signUp",envio)
+    axios.post("https://midenuncia-database-production.up.railway.app/signUp",envio)
     .then(res => console.log(res))
     .catch(err => console.log(err))
 
 }
 
 export async function enviarPeticion(cuerpo, id) {
-    return await axios.post(`http://localhost:4000/request/${id}`, cuerpo,{
+    return await axios.post(`https://midenuncia-database-production.up.railway.app/request/${id}`, cuerpo,{
         headers: {
           "Content-Type": "multipart/form-data"
         }})
@@ -37,12 +37,12 @@ export async function enviarPeticion(cuerpo, id) {
 // }
 
 export async function traeTodoTipoSolicitudes() {
-    return await axios.get(`http://localhost:4000/typerequest`)
+    return await axios.get(`https://midenuncia-database-production.up.railway.app/typerequest`)
         .catch(err => console.log(err))
 }
 
 export async function enviarEstrellas(data) {
-    return await axios.post(`http://localhost:4000/rating/1`, data)
+    return await axios.post(`https://midenuncia-database-production.up.railway.app/rating/1`, data)
         .catch(err => console.log(err))
 }
 
