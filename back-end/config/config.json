@@ -1,11 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "qJFla7aWEeAgfh3nUpae",
+    "password": "n5avQkrpAUjPcDVYCZYu",
     "database": "railway",
-    "host": "containers-us-west-59.railway.app",
+    "host": "containers-us-west-99.railway.app",
     "dialect": "mysql",
-    "port":7050,
+    "port":7406,
     "dialectOptions": {
       "connectTimeout": 10000,
       "ssl": {
@@ -15,11 +15,11 @@
   },
   "test": {
     "username": "root",
-    "password": "qJFla7aWEeAgfh3nUpae",
+    "password": "n5avQkrpAUjPcDVYCZYu",
     "database": "railway",
-    "host": "containers-us-west-59.railway.app",
+    "host": "containers-us-west-99.railway.app",
     "dialect": "mysql",
-    "port":7050,
+    "port":7406,
     "dialectOptions": {
       "connectTimeout": 10000,
       "ssl": {
@@ -29,11 +29,11 @@
   },
   "production": {
     "username": "root",
-    "password": "qJFla7aWEeAgfh3nUpae",
+    "password": "n5avQkrpAUjPcDVYCZYu",
     "database": "railway",
-    "host": "containers-us-west-59.railway.app",
+    "host": "containers-us-west-99.railway.app",
     "dialect": "mysql",
-    "port":7050,
+    "port":7406,
     "dialectOptions": {
       "connectTimeout": 10000,
       "ssl": {
