@@ -114,7 +114,7 @@ exports.infoRequestUser = async (req, res, next) => {
             "comment_count",
           ],[
             Sequelize.literal(
-              `(SELECT COUNT(*) FROM supports WHERE supports.request_id = request.id AND supports.createdAt IS NULL)`
+              `(SELECT COUNT(*) FROM supports WHERE supports.request_id = request.id)`
             ),
             "support",
           ],
