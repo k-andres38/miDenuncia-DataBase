@@ -12,7 +12,7 @@ const recoverPasswordUserLogController=require('../../controllers/user/recoverPa
 const forgotPasswordController=require('../../controllers/user/forgotPasswordController');
 const resetPasswordController=require('../../controllers/user/resetPasswordController');
 const changePasswordUserController=require('../../controllers/user/changePasswordController');
-
+const updateUserController=require('../../controllers/user/updateUserController');
 
 
 
@@ -25,6 +25,6 @@ router.get('/infoRequestUser/',infoRequestUserController.infoRequestUser)
 router.post('/forgot-password',forgotPasswordController.forgotPassword)
 router.get('/reset-password',resetPasswordController.resetPassword)
 router.post('/changePassword',changePasswordUserController.changePasswordUser)
-
+router.put('/UpdateUser/:id',updateUserController.updateUser)
 
 module.exports=router
