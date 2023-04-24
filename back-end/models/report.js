@@ -33,7 +33,6 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.DATE,
     description: DataTypes.TEXT,
     status: DataTypes.TINYINT,
-    photo_id:DataTypes.INTEGER,
     type_report_id: DataTypes.INTEGER,
     request_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,

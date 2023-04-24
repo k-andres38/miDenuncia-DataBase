@@ -7,7 +7,7 @@ const deleteCommentController = require('../../controllers/comment/deleteComment
 const updateCommentController = require('../../controllers/comment/updateCommentController')
 
 router.get('/mostrarComments', infoCommentController.infoComment)
-router.post('/crearComments', createCommentController.createComment)
+router.post('/crearComments/:user/:request', createCommentController.createComment)
 router.delete('/eliminarcomments/:id', deleteCommentController.deleteComment)
 router.put('/actualizarcomments/:id', updateCommentController.updateComment)
 

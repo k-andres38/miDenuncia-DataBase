@@ -18,9 +18,6 @@ module.exports = {
       status: {
         type: Sequelize.TINYINT(1)
       },
-      photo_id: {
-        type: Sequelize.STRING(255),
-      },
       type_report_id: {
         type: Sequelize.INTEGER(1),
         references:{

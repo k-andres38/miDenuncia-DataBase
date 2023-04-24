@@ -12,18 +12,27 @@ exports.signIn = async (req, res, next) => {
     
     await modeloUser
       .findOne({
+      
         where: { nickname },
-        //attributes: ["id", "nickname", "name","password"]
+       //   attributes: ["id","nickname","password","last_name","staff_neighborhood","token","contact_phone","address","document_id"],
+  
+          include:[
+          {model:modelsDocument,
+            attributes: ["type","place_dispatch"]
+          }
+        ]
       })
       .then((user) => {
+       
 
-       const doc= modelsDocument.findOne({where: {id: user.document_id}})
-        if (!user || !doc) {
+      // const doc= modelsDocument.findOne({where: {id: user.document_id}})
+        if (!user ) {
           res
             .status(400)
             .json({ message: "Usuario con este correo no encontrado" });
         } else {
           if (bcrypt.compareSync(password, user.password)) {
+            
             let token = jwt.sign(
               {
                 user
@@ -33,21 +42,49 @@ exports.signIn = async (req, res, next) => {
             );
             user.update(token)
             user.save();
-            res.json({
-              
-               id: user.id,
-               nickname: user.nickname,
-               name: user.name,
-               last_name: user.last_name,
-               contact_phone: user.contact_phone,
-                address: user.address,
-                staff_neighborhood: user.staff_neighborhood,
-                document_id: user.document_id,
-                token,
-                type:doc.type,
-                place_dispatch:doc.place_dispatch
+
+            if(user.document_id==null){
+              res.json({
+                // user
+             
+                 id: user.id,
+                 nickname: user.nickname,
+                 name: user.name,
+                 last_name: user.last_name,
+                 contact_phone: user.contact_phone,
+                  address: user.address,
+                  staff_neighborhood: user.staff_neighborhood,
+                  document_id: user.document_id,
+                 type:null,
+                 place_dispatch:null,
+                  token,
+                 
+              })
+
+            }else{
+              res.json({
+                // user
+             
+                 id: user.id,
+                 nickname: user.nickname,
+                 name: user.name,
+                 last_name: user.last_name,
+                 contact_phone: user.contact_phone,
+                  address: user.address,
+                  staff_neighborhood: user.staff_neighborhood,
+                  document_id: user.document_id,
+                 type:user.document.type,
+                 place_dispatch:user.document.place_dispatch,
+                  token,
+                 
+              })
+            }
+          
+           
+           
                
-            })
+             
+           
           } else {
             res.status(401).json({ message: "contraseña no es correcta" });
           }
