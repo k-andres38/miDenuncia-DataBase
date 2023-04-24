@@ -15,8 +15,8 @@ exports.infoRequestUser = async (req, res, next) => {
   //   //const [offset,limit]=req.query
   //   // console.log(limit)
 
-    let currentPage = parseInt( req.query.offset) || 1;
-    let limit = parseInt( req.query.limit) || 10000;
+    let currentPage = parseInt( req.query.offset) || 0;
+    let limit = parseInt( req.query.limit) || 1000;
     let offset = currentPage * 5;
 
       await modelsRequest
