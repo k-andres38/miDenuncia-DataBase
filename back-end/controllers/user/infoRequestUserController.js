@@ -15,9 +15,9 @@ exports.infoRequestUser = async (req, res, next) => {
   //   //const [offset,limit]=req.query
   //   // console.log(limit)
 
-  //   const currentPage = parseInt( req.query.offset) || 1;
-  //   const limit = parseInt( req.query.limit) || 10000;
-  //   const offset = (currentPage  ) * 5;
+    const currentPage = parseInt( req.query.offset) || 1;
+    const limit = parseInt( req.query.limit) || 10000;
+    const offset = (currentPage  ) * 5;
   //   //console.log(currentPage,limit)
 
   //  // if(req.query.filtro){
