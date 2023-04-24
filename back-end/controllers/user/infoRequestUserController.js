@@ -91,8 +91,8 @@ exports.infoRequestUser = async (req, res, next) => {
       .findAll({
         // limit: 5,
         // offset: 0,
-        // limit,
-        // offset,
+         limit,
+        offset,
         
         order: [["id", "DESC"]],
         attributes: [
