@@ -47,7 +47,7 @@ app.use(passport.initialize());
 
 router.get('/google', googleController);
 
-router.get('prueba/google/callback', passport.authenticate('google', { failureRedirect: '/login' }),async(req, res)=> {
+router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }),async(req, res)=> {
   // console.log(req.user.dataValues.email)
 
   // const user2 = await users.findOne({where:{email}})
