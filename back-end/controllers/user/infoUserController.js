@@ -1,5 +1,5 @@
 const modeloUser = require("../../models").user;
-const modelsRole =require("../../models").role
+const modelsRole =require("../../models").role;
 const { Op } = require('sequelize');
 exports.infoUser = async (req, res, next) => {
   try {
@@ -22,7 +22,11 @@ exports.infoUser = async (req, res, next) => {
         res.status(200).json(data)
        }).catch(msg=>res.status(400).json({message:"No hay Infomación"}))
     } else {
-        await  modeloUser.findAll().then((data)=>{
+        await  modeloUser.findAll({
+          include:[
+            {model:modelsRole}
+          ]
+        }).then((data)=>{
               res.status(200).json(data)
           }).catch((err) => next(err))
     }
