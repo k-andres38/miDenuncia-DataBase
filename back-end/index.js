@@ -37,6 +37,7 @@ const routeCreateRequest = require('./routes/routeCreateRequest/route') // --> c
 const routeTypeReport = require('./routes/routeTypeReport/route') // --> creado por farit
 const routeSupport = require('./routes/routeSupport/route')//-->CArlos
 const routeReport = require('./routes/routeReport/route')
+const routeRol=require("./routes/routeRol/route")
 
 const routerating=require('./routes/routeRting/route')
 const handleError = require('./handlers/handlerError')
@@ -106,6 +107,7 @@ app.use('/',routeTypeRequest)
 app.use('/', routeSupport)
 app.use('/',routerating)
 app.use('/',routeReport)
+app.use('/',routeRol)
 
 //FIN
 ////////////////////////////////////////////////////////////////

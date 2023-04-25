@@ -15,6 +15,8 @@ const changePasswordUserController=require('../../controllers/user/changePasswor
 const updateUserController=require('../../controllers/user/updateUserController');
 const restoreUserController=require('../../controllers/user/restoreUserController')
 const deleteUserController=require('../../controllers/user/deleteUserController')
+const infoRolUSerController=require('../../controllers/user/updateRolUserController')
+const userRolController=require('../../controllers/user/userRolController')
 
 
 
@@ -31,5 +33,10 @@ router.post('/forgot-password',forgotPasswordController.forgotPassword)
 router.get('/reset-password',resetPasswordController.resetPassword)
 router.post('/changePassword',changePasswordUserController.changePasswordUser)
 router.put('/UpdateUser/:id',updateUserController.updateUser)
+router.put('/changeroluser/:user/:rol',infoRolUSerController.rolUser)
+router.get('/inforoluser/:rol',userRolController.infoUserRol)
+
+
+
 
 module.exports=router
