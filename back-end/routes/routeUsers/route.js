@@ -13,11 +13,16 @@ const forgotPasswordController=require('../../controllers/user/forgotPasswordCon
 const resetPasswordController=require('../../controllers/user/resetPasswordController');
 const changePasswordUserController=require('../../controllers/user/changePasswordController');
 const updateUserController=require('../../controllers/user/updateUserController');
+const restoreUserController=require('../../controllers/user/restoreUserController')
+const deleteUserController=require('../../controllers/user/deleteUserController')
 
 
 
 router.post('/signUp',signUpUserController.signUp)
 router.post('/signIn',signInUserController.signIn)
+
+router.put('/restoreuser/:id',restoreUserController.restoreUser)
+router.delete('/deleteuser/:id',deleteUserController.deleteUser)
 
 router.put('/recoverPassword/:id',recoverPasswordUserLogController.recoverPasswordUserLog)
 router.get('/info',infoUserController.infoUser)
