@@ -7,4 +7,4 @@ const infoRolController = require('../../controllers/rol/infoRolController')
 router.get('/inforol', infoRolController.infoRoles)
 
 
-module.exports = router // creado por farit
+module.exports = router 
