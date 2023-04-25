@@ -3,6 +3,10 @@ const modelUser = require("../../models").user;
 exports.updateUser = async (req, res) => {
   try {
     await modelUser.findByPk(req.params.id).then((user) => {
+
+      
+    const {nickname,name, last_name, password }=req.body
+
       if (!user) {
         res.json({
           mensaje: "El user no existe",
@@ -10,7 +14,7 @@ exports.updateUser = async (req, res) => {
       }
 
       modelUser
-        .update(req.body, {
+        .update({nickname,name, last_name, password}, {
           where: {
             id: req.params.id,
           },
@@ -22,7 +26,18 @@ exports.updateUser = async (req, res) => {
         });
     });
 
-    //const {nickname,name, last_name, password }=req.body
+
+
+
+
+
+
+
+
+
+
+
+    
   } catch (error) {
     res.send(error);
   }
