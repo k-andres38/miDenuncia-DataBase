@@ -1,4 +1,5 @@
 const modeloUser = require("../../models").user;
+const modelsRole =require("../../models").role
 const { Op } = require('sequelize');
 exports.infoUser = async (req, res, next) => {
   try {
@@ -12,6 +13,9 @@ exports.infoUser = async (req, res, next) => {
             { staff_neighborhood: req.query.filtro },
             
             { role_id: req.query.filtro },
+          ],
+          include:[
+            {model:modelsRole}
           ]
        }}).then(data=>{
       //  console.log(data)

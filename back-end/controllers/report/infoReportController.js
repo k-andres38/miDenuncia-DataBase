@@ -51,7 +51,7 @@ exports.inforeport = async (req, res) => {
               "last_name",
               "email",
               "contact_phone",
-              "role_id",
+       
             ],
           },
        
