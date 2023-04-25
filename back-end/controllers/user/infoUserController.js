@@ -6,7 +6,7 @@ exports.infoUser = async (req, res, next) => {
     //console.log(req.query.filtro)
     if (req.query.filtro) {
        // console.log(req.body)
-       await modeloUser.findAll({where:{
+       await modeloUser.findAll({paranoid: false,where:{
         [Op.or]: [
             { nickname: req.query.filtro },
             { name: req.query.filtro },
@@ -17,7 +17,7 @@ exports.infoUser = async (req, res, next) => {
           
        },include:[
         {model:modelsRole}
-      ],
+      ],  
       
     
     }).then(data=>{
@@ -26,9 +26,11 @@ exports.infoUser = async (req, res, next) => {
        }).catch(msg=>res.status(400).json({message:"No hay Infomación"}))
     } else {
         await  modeloUser.findAll({
+          paranoid: false,
           include:[
             {model:modelsRole}
           ],
+         
         }).then((data)=>{
               res.status(200).json(data)
           }).catch((err) => next(err))
