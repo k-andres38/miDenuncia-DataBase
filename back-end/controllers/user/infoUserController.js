@@ -18,7 +18,7 @@ exports.infoUser = async (req, res, next) => {
        },include:[
         {model:modelsRole}
       ],
-       paranoid: all
+      
     
     }).then(data=>{
       //  console.log(data)
@@ -28,7 +28,7 @@ exports.infoUser = async (req, res, next) => {
         await  modeloUser.findAll({
           include:[
             {model:modelsRole}
-          ],  paranoid: all
+          ],
         }).then((data)=>{
               res.status(200).json(data)
           }).catch((err) => next(err))
