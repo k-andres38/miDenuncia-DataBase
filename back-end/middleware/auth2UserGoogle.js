@@ -19,7 +19,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "prueba/google/callback",
+      callbackURL: "https://midenuncia-database-production.up.railway.app/prueba/google/callback",
     },
     async (accessToken, refreshToken, profile, cb) => {
       try {
