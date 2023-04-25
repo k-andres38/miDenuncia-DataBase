@@ -14,10 +14,10 @@ exports.infoUser = async (req, res, next) => {
             
             { role_id: req.query.filtro },
           ],
-          include:[
-            {model:modelsRole}
-          ]
-       }}).then(data=>{
+          
+       },include:[
+        {model:modelsRole}
+      ]}).then(data=>{
       //  console.log(data)
         res.status(200).json(data)
        }).catch(msg=>res.status(400).json({message:"No hay Infomación"}))
