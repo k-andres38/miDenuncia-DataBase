@@ -4,8 +4,10 @@ const { Op } = require("sequelize");
 exports.infoUser = async (req, res, next) => {
   try {
    
+   
     
-    if(!Object.keys(req.query).length >= 0){
+    if(Object.keys(req.query).length  > 0 ){
+     
       if (req.query.filtro) {
         
         await modeloUser
