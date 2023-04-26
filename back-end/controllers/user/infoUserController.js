@@ -41,11 +41,11 @@ exports.infoUser = async (req, res, next) => {
         })
         .then((data) => {
           if (data.length === 0) {
-            res
+          return  res
               .status(200)
               .json({ message: "No hay ningún usuario con este rol" });
           } else {
-            res.status(200).json(data);
+           return res.status(200).json(data);
           }
         })
         .catch((err) => next(err));
@@ -70,11 +70,11 @@ exports.infoUser = async (req, res, next) => {
        
           if (data.length===0) {
            
-            res
+            return  res
               .status(200)
               .json({ message: "No hay ningún usuario con este estado"});
           } else {
-            res.status(200).json(data);
+            return res.status(200).json(data);
           }
         })
         

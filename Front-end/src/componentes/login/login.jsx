@@ -24,7 +24,6 @@ function Login() {
                 navigate('/usuarioLog')
             }
             else{
-              
                 setError(res.response.data.message)
             }
         })
