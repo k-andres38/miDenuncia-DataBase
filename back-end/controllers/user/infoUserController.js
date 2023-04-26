@@ -72,7 +72,7 @@ exports.infoUser = async (req, res, next) => {
               deletedAt: {
                 [Op.not]: null,
               }
-            },
+            }, include: [{ model: modelsRole }],
           })
           .then((data) => {
          
@@ -98,7 +98,7 @@ exports.infoUser = async (req, res, next) => {
               deletedAt: {
                 [Op.is]: null,
               },
-            },
+            }, include: [{ model: modelsRole }],
           })
           .then((data) => {
             if (data.length === 0) {
