@@ -34,14 +34,14 @@ passport.use(
         });
 
         if (created) {
-          console.log('estoy en creadeted')
+          
           cb(null, user);
         } else {
-          console.log('estoy en else create')
+          
           cb(null, user);
         }
       } catch (err) {
-        console.log('estoy en error')
+       
         cb(err);
       }
     }

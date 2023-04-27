@@ -150,7 +150,7 @@ app.get('/verificacionToken', async (req, res) => {
     req.session.email = user.email;
    
     
-    const url = `http://localhost:5173/contrasenaNueva?token=${user.resetPasswordToken}&email=${user.email}}`;
+    const url = `https://midenuncia.online/contrasenaNueva?token=${user.resetPasswordToken}&email=${user.email}}`;
   res.redirect(url)
   }).catch(err => {
     res.send('token no funciona')

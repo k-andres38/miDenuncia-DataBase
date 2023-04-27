@@ -48,7 +48,7 @@ app.use(passport.initialize());
 router.get('/google', googleController);
 
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/info' }),async(req, res)=> {
-  console.log('estoy en la ruta de /auth/google/callback')
+  
   // console.log(req.user.dataValues.email)
 
   // const user2 = await users.findOne({where:{email}})
