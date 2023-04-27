@@ -48,6 +48,7 @@ app.use(passport.initialize());
 router.get('/google', googleController);
 
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/info' }),async(req, res)=> {
+  console.log('estoy en la ruta de /auth/google/callback')
   // console.log(req.user.dataValues.email)
 
   // const user2 = await users.findOne({where:{email}})
@@ -62,7 +63,7 @@ router.get('/auth/google/callback', passport.authenticate('google', { failureRed
    // user1.session=user.email
    
     user1.save()
-  res.redirect('http://localhost:5173/usuarioLog')
+  res.redirect('http://midenuncia.online/')
 
 
   //res.status(200).json({message: 'Success',user:{id:req.user.id,name:req.user.name,email:req.user.email}})
