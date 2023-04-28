@@ -63,7 +63,7 @@ router.get('/auth/google/callback', passport.authenticate('google', { failureRed
    // user1.session=user.email
    
     user1.save()
-  res.redirect('http://midenuncia.online/usuarioLog')
+  res.status(200).redirect('http://midenuncia.online/usuarioLog')
 
 
   //res.status(200).json({message: 'Success',user:{id:req.user.id,name:req.user.name,email:req.user.email}})
